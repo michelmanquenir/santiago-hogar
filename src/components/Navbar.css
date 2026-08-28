@@ -1,0 +1,264 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav__top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-block: 14px;
+}
+
+.nav__cats {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 10px;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.nav__brand {
+  flex-shrink: 0;
+}
+
+/* Logo */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo__text strong {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.3px;
+}
+
+.logo__text small {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.nav__search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+
+.nav__search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 11px 14px;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--ink);
+  outline: none;
+}
+
+.nav__search button {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  padding: 0 14px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+}
+
+.nav__search button:hover {
+  color: var(--navy);
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.nav__cart {
+  position: relative;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--navy);
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.nav__cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  padding: 0 4px;
+}
+
+.nav__burger {
+  display: none;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--navy);
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  place-items: center;
+}
+
+/* Bottom bar */
+.nav__bar {
+  border-top: 1px solid var(--border);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav__item {
+  position: relative;
+}
+
+.nav__item > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 14px 16px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+  transition: color 0.15s ease;
+}
+
+.nav__item > a:hover,
+.nav__item > a.is-active {
+  color: var(--red);
+}
+
+.nav__item > a.is-active {
+  box-shadow: inset 0 -3px 0 var(--red);
+}
+
+.nav__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  padding: 8px;
+  display: none;
+  flex-direction: column;
+  z-index: 20;
+}
+
+.nav__item.has-children:hover .nav__dropdown {
+  display: flex;
+}
+
+.nav__dropdown a {
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--body);
+}
+
+.nav__dropdown a:hover {
+  background: var(--bg-soft);
+  color: var(--navy);
+}
+
+@media (max-width: 1100px) {
+  .nav__quote span,
+  .nav__wa span {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav__cats {
+    display: none;
+  }
+  .nav__quote,
+  .nav__wa {
+    display: none;
+  }
+  .nav__burger {
+    display: grid;
+  }
+  .nav__top {
+    flex-wrap: wrap;
+  }
+  .nav__search {
+    order: 3;
+    flex-basis: 100%;
+  }
+  .nav__bar {
+    display: none;
+  }
+  .nav__bar.is-open {
+    display: block;
+  }
+  .nav__links {
+    flex-direction: column;
+    align-items: stretch;
+    padding-block: 8px;
+  }
+  .nav__item > a {
+    justify-content: space-between;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav__dropdown {
+    position: static;
+    display: flex;
+    border: none;
+    box-shadow: none;
+    padding: 4px 0 8px 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav__brand .logo__text small {
+    display: none;
+  }
+}
