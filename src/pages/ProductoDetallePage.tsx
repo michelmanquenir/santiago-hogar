@@ -7,14 +7,38 @@ import ProductCard from '../components/ProductCard'
 import './page-shared.css'
 import './ProductoDetallePage.css'
 
+/** Arma el enlace de WhatsApp con la consulta de disponibilidad del producto. */
+function buildWhatsAppHref(product: Product): string {
+  const url = `${window.location.origin}${window.location.pathname}#/producto/${product.slug}`
+  const price =
+    product.price != null
+      ? `Desde ${formatCLP(product.price)}`
+      : 'Valor a cotizar'
+  const specs = product.specs
+    .slice(0, 4)
+    .map((s) => `• ${s.label}: ${s.value}`)
+    .join('\n')
+
+  const message = [
+    'Hola 👋, quiero consultar la *disponibilidad* de este producto:',
+    '',
+    `*${product.name}*`,
+    `Categoría: ${product.category} · ${product.brand}`,
+    `Precio: ${price}`,
+    ...(specs ? ['', specs] : []),
+    '',
+    `Ficha del producto: ${url}`,
+  ].join('\n')
+
+  return `${contact.productsWhatsappHref}?text=${encodeURIComponent(message)}`
+}
+
 export default function ProductoDetallePage({ product }: { product: Product }) {
   const related = products
     .filter((p) => p.category === product.category && p.slug !== product.slug)
     .slice(0, 3)
 
-  const waHref = `${contact.whatsappHref}?text=${encodeURIComponent(
-    `Hola, me interesa el producto: ${product.name}`,
-  )}`
+  const waHref = buildWhatsAppHref(product)
 
   return (
     <div className="pd">

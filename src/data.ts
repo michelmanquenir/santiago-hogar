@@ -6,6 +6,9 @@ export const contact = {
   whatsappHref: 'https://wa.me/56988988811',
   email: 'serviciossantiagohogar@gmail.com',
   address: 'Santiago, Región Metropolitana',
+  /** Número dedicado a consultas de productos / disponibilidad. */
+  productsWhatsapp: '+56 9 5528 1193',
+  productsWhatsappHref: 'https://wa.me/56955281193',
 }
 
 export type NavChild = {
