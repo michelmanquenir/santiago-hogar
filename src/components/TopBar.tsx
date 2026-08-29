@@ -11,7 +11,11 @@ export default function TopBar() {
             <Icon name="phone" size={15} />
             {contact.phone}
           </a>
-          <a href={contact.whatsappHref}>
+          <a
+            href={contact.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Icon name="whatsapp" size={15} />
             {contact.whatsapp}
           </a>

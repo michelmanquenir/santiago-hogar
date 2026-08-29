@@ -42,6 +42,8 @@ export default function Navbar() {
           <a
             className="btn btn--whatsapp nav__wa"
             href={contact.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Icon name="whatsapp" size={16} />
             WhatsApp

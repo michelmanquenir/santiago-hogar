@@ -8,6 +8,8 @@ export default function FloatingActions() {
       <a
         className="fab__btn fab__btn--wa"
         href={contact.whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="Escríbenos por WhatsApp"
       >
         <Icon name="whatsapp" size={22} />

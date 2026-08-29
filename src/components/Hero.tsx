@@ -34,7 +34,12 @@ export default function Hero() {
           </p>
 
           <div className="hero__cta">
-            <a className="btn btn--whatsapp" href={contact.whatsappHref}>
+            <a
+              className="btn btn--whatsapp"
+              href={contact.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon name="whatsapp" size={18} />
               Hablar por WhatsApp
             </a>

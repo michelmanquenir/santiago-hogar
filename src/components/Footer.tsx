@@ -51,7 +51,13 @@ export default function Footer() {
             </li>
             <li>
               <Icon name="whatsapp" size={16} />
-              <a href={contact.whatsappHref}>{contact.whatsapp}</a>
+              <a
+                href={contact.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {contact.whatsapp}
+              </a>
             </li>
             <li>
               <Icon name="mail" size={16} />

@@ -79,7 +79,12 @@ export default function ProductoDetallePage({ product }: { product: Product }) {
               )}
 
               <div className="pd-hero__cta">
-                <a className="btn btn--whatsapp" href={waHref}>
+                <a
+                  className="btn btn--whatsapp"
+                  href={waHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Icon name="whatsapp" size={18} />
                   Consultar por WhatsApp
                 </a>
