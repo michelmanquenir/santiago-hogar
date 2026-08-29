@@ -1,4 +1,4 @@
-import { categories } from '../data'
+import { categories, categoryHref } from '../data'
 import Icon from './Icon'
 import './Categories.css'
 
@@ -12,7 +12,7 @@ export default function Categories() {
 
         <div className="categories__grid">
           {categories.map((cat) => (
-            <a key={cat.name} href="#" className="cat-card">
+            <a key={cat.name} href={categoryHref(cat.name)} className="cat-card">
               <div className="cat-card__media">
                 <img src={cat.image} alt={cat.name} loading="lazy" />
                 <span className="cat-card__icon">

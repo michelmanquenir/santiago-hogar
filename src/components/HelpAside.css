@@ -1,0 +1,133 @@
+.help-aside {
+  position: sticky;
+  top: 24px;
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+.help-aside__brand {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: 20px;
+}
+
+.help-aside__benefits {
+  display: flex;
+  flex-direction: column;
+}
+
+.help-aside__benefits li {
+  display: flex;
+  gap: 12px;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.help-aside__benefits li:first-child {
+  padding-top: 0;
+}
+
+.help-aside__benefits li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.help-aside__benefit-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(225, 16, 32, 0.09);
+  display: grid;
+  place-items: center;
+  color: var(--red);
+  flex-shrink: 0;
+}
+
+.help-aside__benefits strong {
+  display: block;
+  color: var(--ink);
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.help-aside__benefits div span {
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+.help-aside__rule {
+  border: none;
+  border-top: 1px solid var(--hairline);
+  margin: 20px 0;
+}
+
+.help-aside h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.help-aside h3::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--red);
+  margin: 12px 0 14px;
+}
+
+.help-aside__lead {
+  font-size: 0.88rem;
+  margin-bottom: 18px;
+}
+
+.help-aside__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-bottom: 20px;
+}
+
+.help-aside__contact li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: var(--body);
+}
+
+.help-aside__contact svg {
+  color: var(--red);
+  flex-shrink: 0;
+}
+
+.help-aside__contact a:hover {
+  color: var(--navy);
+}
+
+@media (max-width: 1100px) {
+  .help-aside {
+    position: static;
+  }
+  .help-aside__benefits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 28px;
+  }
+  .help-aside__benefits li {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .help-aside__benefits {
+    grid-template-columns: 1fr;
+  }
+}

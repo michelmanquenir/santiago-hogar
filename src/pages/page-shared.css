@@ -1,0 +1,116 @@
+/* Estilos compartidos por las páginas internas (categorías / servicios). */
+
+/* Layout de 2 columnas: contenido + sidebar de ayuda */
+.page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 56px;
+  align-items: start;
+  padding-block: 8px 64px;
+}
+
+@media (max-width: 1100px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+/* Encabezado de página: título + bajada + imagen opcional */
+.page-head {
+  margin-bottom: 4px;
+}
+
+.page-head.has-img {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.page-head__img img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--bg-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+.page-intro {
+  margin-top: 18px;
+  max-width: 60ch;
+}
+
+@media (max-width: 900px) {
+  .page-head.has-img {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+.page-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-top: 28px;
+}
+
+.page-crumb a:hover {
+  color: var(--navy);
+}
+
+.page-crumb__sep {
+  color: var(--border);
+}
+
+.page-crumb__current {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.page-title {
+  font-size: clamp(1.8rem, 1.3rem + 2vw, 2.6rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.page-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--red);
+  margin-top: 14px;
+}
+
+/* Encabezado de sección con ícono circular */
+.page-h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.page-h__icon {
+  width: 42px;
+  height: 42px;
+  background: rgba(225, 16, 32, 0.09);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--red);
+  flex-shrink: 0;
+}
+
+.page-h h2 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}

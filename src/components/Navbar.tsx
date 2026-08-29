@@ -15,7 +15,7 @@ export default function Navbar() {
           Categorías
         </button>
 
-        <a href="#inicio" className="nav__brand">
+        <a href="#/" className="nav__brand">
           <Logo />
         </a>
 
@@ -69,15 +69,18 @@ export default function Navbar() {
               key={item.label}
               className={`nav__item ${item.children ? 'has-children' : ''}`}
             >
-              <a href="#" className={item.label === 'Inicio' ? 'is-active' : ''}>
+              <a
+                href={item.href}
+                className={item.label === 'Inicio' ? 'is-active' : ''}
+              >
                 {item.label}
                 {item.children && <Icon name="chevron-down" size={15} />}
               </a>
               {item.children && (
                 <div className="nav__dropdown">
                   {item.children.map((c) => (
-                    <a key={c} href="#">
-                      {c}
+                    <a key={c.label} href={c.href}>
+                      {c.label}
                     </a>
                   ))}
                 </div>

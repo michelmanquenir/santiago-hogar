@@ -8,24 +8,33 @@ export const contact = {
   address: 'Santiago, Región Metropolitana',
 }
 
+export type NavChild = {
+  label: string
+  href: string
+}
+
 export type NavItem = {
   label: string
-  children?: string[]
+  href: string
+  children?: NavChild[]
 }
 
 export const navItems: NavItem[] = [
-  { label: 'Inicio' },
-  {
-    label: 'Productos',
-    children: ['Calderas', 'Calefont', 'Radiadores', 'Aire acondicionado', 'Repuestos'],
-  },
+  { label: 'Inicio', href: '#/' },
+  { label: 'Productos', href: '#/productos' },
   {
     label: 'Servicios',
-    children: ['Instalación', 'Mantención', 'Reparación', 'Limpieza de redes', 'Servicio técnico'],
+    href: '#/servicio-tecnico-de-gas',
+    children: [
+      { label: 'Servicio Técnico de Gas', href: '#/servicio-tecnico-de-gas' },
+      { label: 'Calderas y Calefont', href: '#/calderas-y-calefont' },
+      { label: 'Radiadores y Calefacción', href: '#/radiadores-y-calefaccion' },
+      { label: 'Limpieza de Redes', href: '#/limpieza-de-redes' },
+    ],
   },
-  { label: 'Marcas' },
-  { label: 'Nosotros' },
-  { label: 'Contacto' },
+  { label: 'Marcas', href: '#marcas' },
+  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Contacto', href: '#contacto' },
 ]
 
 export type Category = {
@@ -37,93 +46,28 @@ export type Category = {
 
 export const categories: Category[] = [
   {
-    name: 'Calefacción',
-    description: 'Calderas, calefont, radiadores y más.',
-    icon: 'flame',
-    image: 'https://picsum.photos/seed/calefaccion/480/320',
-  },
-  {
-    name: 'Aire Acondicionado',
-    description: 'Equipos split, multisplit, inverter y más.',
-    icon: 'snowflake',
-    image: 'https://picsum.photos/seed/aire/480/320',
-  },
-  {
-    name: 'Radiadores',
-    description: 'Radiadores, toalleros y accesorios.',
-    icon: 'radiator',
-    image: 'https://picsum.photos/seed/radiadores/480/320',
-  },
-  {
-    name: 'Repuestos',
-    description: 'Repuestos y accesorios para tus equipos.',
-    icon: 'gear',
-    image: 'https://picsum.photos/seed/repuestos/480/320',
-  },
-  {
-    name: 'Artefactos',
-    description: 'Venta de calderas, calefont y más.',
-    icon: 'store',
-    image: 'https://picsum.photos/seed/artefactos/480/320',
-  },
-  {
-    name: 'Servicios Técnicos',
-    description: 'Instalación, mantención y reparación.',
+    name: 'Servicio Técnico de Gas',
+    description: 'Instalación y reparación certificada de equipos a gas.',
     icon: 'wrench',
-    image: 'https://picsum.photos/seed/servicios/480/320',
-  },
-]
-
-export type Product = {
-  name: string
-  spec: string
-  price: number
-  image: string
-  installIncluded: boolean
-}
-
-export const products: Product[] = [
-  {
-    name: 'Caldera Mural Anwo',
-    spec: 'AE 24 KW',
-    price: 1249990,
-    image: 'https://picsum.photos/seed/caldera/360/360',
-    installIncluded: true,
+    image: 'https://picsum.photos/seed/servicio-gas/480/320',
   },
   {
-    name: 'Calefont Anwo',
-    spec: '14 Litros GN',
-    price: 299990,
-    image: 'https://picsum.photos/seed/calefont/360/360',
-    installIncluded: true,
+    name: 'Calderas y Calefont',
+    description: 'Venta, instalación y mantención de calderas y calefont.',
+    icon: 'flame',
+    image: 'https://picsum.photos/seed/calderas-calefont/480/320',
   },
   {
-    name: 'Aire Acondicionado Inverter',
-    spec: '12000 BTU',
-    price: 429990,
-    image: 'https://picsum.photos/seed/split/360/360',
-    installIncluded: true,
+    name: 'Radiadores y Calefacción',
+    description: 'Radiadores, toalleros y sistemas de calefacción central.',
+    icon: 'radiator',
+    image: 'https://picsum.photos/seed/radiadores-calefaccion/480/320',
   },
   {
-    name: 'Radiador Acero',
-    spec: '600 x 1000',
-    price: 89990,
-    image: 'https://picsum.photos/seed/radiador/360/360',
-    installIncluded: true,
-  },
-  {
-    name: 'Termo Eléctrico',
-    spec: '80 Litros',
-    price: 179990,
-    image: 'https://picsum.photos/seed/termo/360/360',
-    installIncluded: true,
-  },
-  {
-    name: 'Caldera a Gas Junkers',
-    spec: 'Cerapur 30 KW',
-    price: 1599990,
-    image: 'https://picsum.photos/seed/junkers/360/360',
-    installIncluded: true,
+    name: 'Limpieza de Redes',
+    description: 'Limpieza y purga de redes de agua y calefacción.',
+    icon: 'droplet',
+    image: 'https://picsum.photos/seed/limpieza-redes/480/320',
   },
 ]
 
@@ -214,12 +158,10 @@ export const reviews: Review[] = [
 export const footerLinks = {
   'Enlaces Rápidos': ['Inicio', 'Productos', 'Servicios', 'Marcas', 'Nosotros', 'Contacto'],
   Categorías: [
-    'Calefacción',
-    'Aire Acondicionado',
-    'Aire Acond. Solar',
-    'Energía Solar',
-    'Termos Eléctricos',
-    'Tratamiento de Agua',
+    'Servicio Técnico de Gas',
+    'Calderas y Calefont',
+    'Radiadores y Calefacción',
+    'Limpieza de Redes',
   ],
   Servicios: [
     'Instalación',
@@ -235,4 +177,18 @@ export const paymentMethods = ['Mercado Pago', 'VISA', 'Mastercard', 'Magna', 'R
 
 export function formatCLP(value: number): string {
   return '$' + value.toLocaleString('es-CL')
+}
+
+/** Categorías que ya tienen página propia maquetada. */
+export const categoryRoutes: Record<string, string> = {
+  'Servicio Técnico de Gas': '/servicio-tecnico-de-gas',
+  'Calderas y Calefont': '/calderas-y-calefont',
+  'Radiadores y Calefacción': '/radiadores-y-calefaccion',
+  'Limpieza de Redes': '/limpieza-de-redes',
+}
+
+/** Devuelve el href para una categoría o servicio del menú. */
+export function categoryHref(name: string): string {
+  const route = categoryRoutes[name]
+  return route ? `#${route}` : '#categorias'
 }

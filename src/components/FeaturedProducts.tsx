@@ -1,5 +1,6 @@
 import { useRef } from 'react'
-import { formatCLP, products } from '../data'
+import { formatCLP } from '../data'
+import { products } from '../data/products'
 import Icon from './Icon'
 import './FeaturedProducts.css'
 
@@ -32,26 +33,32 @@ export default function FeaturedProducts() {
 
           <div className="products__track" ref={trackRef}>
             {products.map((p) => (
-              <article key={p.name} className="product-card">
+              <a
+                key={p.slug}
+                className="product-card"
+                href={`#/producto/${p.slug}`}
+              >
                 <div className="product-card__media">
                   <img src={p.image} alt={p.name} loading="lazy" />
                 </div>
                 <div className="product-card__body">
-                  <h3>
-                    {p.name} <span>{p.spec}</span>
-                  </h3>
-                  <div className="product-card__price">{formatCLP(p.price)}</div>
+                  <span className="product-card__cat">{p.category}</span>
+                  <h3>{p.name}</h3>
+                  {p.price != null && (
+                    <div className="product-card__price">
+                      Desde {formatCLP(p.price)}
+                    </div>
+                  )}
                   {p.installIncluded && (
                     <p className="product-card__tag">
                       <span className="dot" /> Instalación incluida
                     </p>
                   )}
-                  <button className="btn btn--red btn--block" type="button">
-                    <Icon name="cart" size={16} />
-                    Agregar al carrito
-                  </button>
+                  <span className="product-card__link">
+                    Ver producto <Icon name="arrow-right" size={15} />
+                  </span>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
 
@@ -63,6 +70,13 @@ export default function FeaturedProducts() {
           >
             <Icon name="chevron-right" size={20} />
           </button>
+        </div>
+
+        <div className="products__all">
+          <a className="btn btn--ghost" href="#/productos">
+            Ver todos los productos
+            <Icon name="arrow-right" size={16} />
+          </a>
         </div>
       </div>
     </section>

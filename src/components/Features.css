@@ -1,6 +1,6 @@
 .features {
   background: #fff;
-  border-block: 1px solid var(--border);
+  border-block: 1px solid var(--hairline);
 }
 
 .features__grid {

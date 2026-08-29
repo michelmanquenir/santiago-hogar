@@ -23,13 +23,18 @@ export type IconName =
   | 'flame'
   | 'snowflake'
   | 'radiator'
+  | 'droplet'
   | 'gear'
+  | 'trending-up'
+  | 'thermometer'
+  | 'clipboard'
   | 'store'
   | 'wrench'
   | 'shield'
   | 'truck'
   | 'clock'
   | 'users'
+  | 'headset'
   | 'star'
   | 'check'
   | 'map-pin'
@@ -105,6 +110,25 @@ const paths: Record<IconName, ReactNode> = {
       <path d="M8 5v12M12 5v12M16 5v12M7 20v-1M12 20v-1M17 20v-1" />
     </>
   ),
+  droplet: (
+    <path d="M12 2.5c3.5 4.2 7 7.8 7 12a7 7 0 0 1-14 0c0-4.2 3.5-7.8 7-12Z" />
+  ),
+  'trending-up': (
+    <>
+      <path d="M3 17 9 11l4 4 8-8" />
+      <path d="M16 7h5v5" />
+    </>
+  ),
+  thermometer: (
+    <path d="M14 14.76V4a2 2 0 0 0-4 0v10.76a4 4 0 1 0 4 0Z" />
+  ),
+  clipboard: (
+    <>
+      <rect x="5" y="4" width="14" height="17" rx="2" />
+      <path d="M9 4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1H9Z" />
+      <path d="m9 13 2 2 4-4" />
+    </>
+  ),
   gear: (
     <>
       <circle cx="12" cy="12" r="3.2" />
@@ -137,6 +161,14 @@ const paths: Record<IconName, ReactNode> = {
     <>
       <circle cx="9" cy="8" r="3.5" />
       <path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 5.5a3.5 3.5 0 0 1 0 6.9M17 20a6.5 6.5 0 0 0-2.5-5.1" />
+    </>
+  ),
+  headset: (
+    <>
+      <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+      <rect x="2.5" y="13" width="4" height="7" rx="1.5" />
+      <rect x="17.5" y="13" width="4" height="7" rx="1.5" />
+      <path d="M20 19.5v.5a3 3 0 0 1-3 3h-3" />
     </>
   ),
   star: (
