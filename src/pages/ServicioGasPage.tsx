@@ -38,11 +38,11 @@ const services: Service[] = [
 ]
 
 const equipos: { label: string; image: string }[] = [
-  { label: 'Calderas murales', image: 'https://picsum.photos/seed/caldera-mural/320/320' },
-  { label: 'Calderas de piso', image: 'https://picsum.photos/seed/caldera-piso/320/320' },
-  { label: 'Calefont', image: 'https://picsum.photos/seed/calefont-gas/320/320' },
-  { label: 'Radiadores', image: 'https://picsum.photos/seed/radiador-gas/320/320' },
-  { label: 'Sistemas de control', image: 'https://picsum.photos/seed/termostato/320/320' },
+  { label: 'Calderas murales', image: '/images/servicios/servicio-tecnico-de-gas/equipos/calderas-murales.jpg' },
+  { label: 'Calderas de piso', image: '/images/servicios/servicio-tecnico-de-gas/equipos/calderas-de-piso.jpg' },
+  { label: 'Calefont', image: '/images/servicios/servicio-tecnico-de-gas/equipos/calefont.jpg' },
+  { label: 'Radiadores', image: '/images/servicios/servicio-tecnico-de-gas/equipos/radiadores.jpg' },
+  { label: 'Sistemas de control', image: '/images/servicios/servicio-tecnico-de-gas/equipos/sistemas-de-control.jpg' },
 ]
 
 const trust: { label: string; icon: IconName }[] = [
@@ -75,10 +75,10 @@ export default function ServicioGasPage() {
           </div>
           <div className="svc-hero__img">
             <img
-              src="https://picsum.photos/seed/tecnico-gas-caldera/720/460"
+              src="/images/servicios/servicio-tecnico-de-gas/hero.jpg"
               alt="Técnico realizando servicio a una caldera a gas"
-              width={720}
-              height={460}
+              width={1672}
+              height={941}
             />
           </div>
         </header>

@@ -103,7 +103,7 @@ export default function LimpiezaRedesPage() {
             </div>
             <div className="page-head__img">
               <img
-                src="https://picsum.photos/seed/limpieza-redes-equipo/900/520"
+                src="/images/servicios/limpieza-de-redes/hero.jpg"
                 alt="Equipo de limpieza de redes de calefacción conectado a la instalación"
               />
             </div>

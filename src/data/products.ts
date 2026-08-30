@@ -41,7 +41,7 @@ export const products: Product[] = [
     name: 'Calefón Mural ANWO Hitech Hydro 18 Tiro Forzado',
     category: 'Calefont',
     brand: 'ANWO',
-    image: 'https://picsum.photos/seed/calefont-hydro-18/640/720',
+    image: '/images/productos/calefont-anwo-hitech-hydro-18.jpg',
     price: 319990,
     installIncluded: true,
     tagline: 'Calefón mural de tiro forzado, 18 L/min con pantalla LED multifuncional.',
@@ -74,7 +74,7 @@ export const products: Product[] = [
     name: 'Caldera Mural ANWO Aqua Plus 2.0',
     category: 'Calderas',
     brand: 'ANWO',
-    image: 'https://picsum.photos/seed/caldera-aqua-plus/640/720',
+    image: '/images/productos/caldera-anwo-aqua-plus-2-0.jpg',
     price: 1290000,
     installIncluded: true,
     tagline: 'Caldera mural convencional mixta, tiro forzado / balanceado.',
@@ -104,7 +104,7 @@ export const products: Product[] = [
     name: 'Radiador Simple ANWO EK',
     category: 'Radiadores',
     brand: 'ANWO',
-    image: 'https://picsum.photos/seed/radiador-simple-ek/640/720',
+    image: '/images/productos/radiador-simple-anwo-ek.jpg',
     price: 44990,
     tagline: 'Radiador simple de acero: una placa y un convector.',
     summary: [
@@ -133,7 +133,7 @@ export const products: Product[] = [
     name: 'Radiador Doble ANWO DK',
     category: 'Radiadores',
     brand: 'ANWO',
-    image: 'https://picsum.photos/seed/radiador-doble-dk/640/720',
+    image: '/images/productos/radiador-doble-anwo-dk.jpg',
     price: 69990,
     tagline: 'Radiador doble de acero: dos placas y dos convectores.',
     summary: [
@@ -162,7 +162,7 @@ export const products: Product[] = [
     name: 'Termostato Ambiental Simple ANWO ATS-Touch',
     category: 'Termostatos',
     brand: 'ANWO',
-    image: 'https://picsum.photos/seed/termostato-ats-touch/640/720',
+    image: '/images/productos/termostato-simple-anwo-ats-touch.jpg',
     price: 39990,
     tagline: 'Termostato digital simple con pantalla táctil, uso doméstico e industrial.',
     summary: [
@@ -188,7 +188,7 @@ export const products: Product[] = [
     name: 'Termostato Ambiental Programable ANWO ATP-1',
     category: 'Termostatos',
     brand: 'ANWO',
-    image: 'https://picsum.photos/seed/termostato-atp-1/640/720',
+    image: '/images/productos/termostato-programable-anwo-atp-1.jpg',
     price: 49990,
     tagline: 'Termostato con programación semanal y diaria para maximizar el confort.',
     summary: [

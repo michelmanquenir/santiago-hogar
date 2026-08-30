@@ -54,7 +54,7 @@ export const categoryPages: Record<string, CategoryPageConfig> = {
           'Mixtas (calefacción y ACS)',
         ],
         cta: 'Ver calderas',
-        image: 'https://picsum.photos/seed/caldera-mural-anwo/560/560',
+        image: '/images/servicios/calderas-y-calefont/calderas.jpg',
       },
       {
         accent: 'blue',
@@ -63,7 +63,7 @@ export const categoryPages: Record<string, CategoryPageConfig> = {
         description: 'Agua caliente inmediata y constante para tu día a día.',
         bullets: ['Tiro natural', 'Tiro forzado', 'Distintas capacidades'],
         cta: 'Ver calefont',
-        image: 'https://picsum.photos/seed/calefont-anwo/560/560',
+        image: '/images/servicios/calderas-y-calefont/calefont.jpg',
       },
     ],
     featured: [
@@ -71,25 +71,25 @@ export const categoryPages: Record<string, CategoryPageConfig> = {
         name: 'Caldera ANWO Aqua Plus 2.0',
         spec: '24 kW · Mural · Mixta',
         from: 1290000,
-        image: 'https://picsum.photos/seed/aqua-plus/320/360',
+        image: '/images/servicios/calderas-y-calefont/destacados/caldera-anwo-aqua-plus.jpg',
       },
       {
         name: 'Caldera ANWO Aqua Premium 30',
         spec: '30 kW · Mural · Mixta',
         from: 1590000,
-        image: 'https://picsum.photos/seed/aqua-premium/320/360',
+        image: '/images/servicios/calderas-y-calefont/destacados/caldera-anwo-aqua-plus.jpg',
       },
       {
         name: 'Calefont ANWO Hydro 18',
         spec: '18 Litros · Tiro Natural',
         from: 319990,
-        image: 'https://picsum.photos/seed/hydro-18/320/360',
+        image: '/images/servicios/calderas-y-calefont/destacados/calefont-anwo-hydro-18.jpg',
       },
       {
         name: 'Calefont ANWO Hydro 26',
         spec: '26 Litros · Tiro Forzado',
         from: 389990,
-        image: 'https://picsum.photos/seed/hydro-26/320/360',
+        image: '/images/servicios/calderas-y-calefont/destacados/calefont-anwo-hydro-18.jpg',
       },
     ],
     featuredCta: 'Consultar disponibilidad',
@@ -122,7 +122,7 @@ export const categoryPages: Record<string, CategoryPageConfig> = {
     title: 'Radiadores y Calefacción',
     intro:
       'Soluciones eficientes y confiables para mantener tu hogar o negocio siempre cálido. Venta e instalación de radiadores, accesorios y sistemas de calefacción.',
-    heroImage: 'https://picsum.photos/seed/radiador-pared-hogar/900/520',
+    heroImage: '/images/servicios/radiadores-y-calefaccion/hero.jpg',
     splits: [
       {
         accent: 'red',
@@ -137,7 +137,7 @@ export const categoryPages: Record<string, CategoryPageConfig> = {
           'Accesorios de instalación',
         ],
         cta: 'Ver radiadores',
-        image: 'https://picsum.photos/seed/radiador-aluminio-blanco/560/560',
+        image: '/images/servicios/radiadores-y-calefaccion/radiadores.jpg',
       },
       {
         accent: 'blue',
@@ -151,34 +151,34 @@ export const categoryPages: Record<string, CategoryPageConfig> = {
           'Válvulas termostáticas',
         ],
         cta: 'Ver termostatos',
-        image: 'https://picsum.photos/seed/termostato-digital-pared/560/560',
+        image: '/images/servicios/radiadores-y-calefaccion/termostatos.jpg',
       },
     ],
     featured: [
       {
         name: 'Radiador Aluminio 500/100',
         from: 89990,
-        image: 'https://picsum.photos/seed/rad-aluminio-500/320/360',
+        image: '/images/servicios/radiadores-y-calefaccion/destacados/radiador-simple-ek.jpg',
       },
       {
         name: 'Radiador Acero 600/1000',
         from: 119990,
-        image: 'https://picsum.photos/seed/rad-acero-600/320/360',
+        image: '/images/servicios/radiadores-y-calefaccion/destacados/radiador-doble-dk.jpg',
       },
       {
         name: 'Radiador Toallero Blanco',
         from: 129990,
-        image: 'https://picsum.photos/seed/rad-toallero/320/360',
+        image: '/images/servicios/radiadores-y-calefaccion/destacados/secatoallas.jpg',
       },
       {
         name: 'Termostato Digital Programable',
         from: 49990,
-        image: 'https://picsum.photos/seed/termostato-prog/320/360',
+        image: '/images/servicios/radiadores-y-calefaccion/termostatos.jpg',
       },
       {
         name: 'Válvula Termostática Universal',
         from: 24990,
-        image: 'https://picsum.photos/seed/valvula-termostatica/320/360',
+        image: '/images/servicios/radiadores-y-calefaccion/destacados/valvulas-termostaticas.jpg',
       },
     ],
     featuredCta: 'Ver producto',

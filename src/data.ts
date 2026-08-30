@@ -52,25 +52,25 @@ export const categories: Category[] = [
     name: 'Servicio Técnico de Gas',
     description: 'Instalación y reparación certificada de equipos a gas.',
     icon: 'wrench',
-    image: 'https://picsum.photos/seed/servicio-gas/480/320',
+    image: '/images/inicio/categorias/servicio-tecnico-de-gas.jpg',
   },
   {
     name: 'Calderas y Calefont',
     description: 'Venta, instalación y mantención de calderas y calefont.',
     icon: 'flame',
-    image: 'https://picsum.photos/seed/calderas-calefont/480/320',
+    image: '/images/inicio/categorias/calderas-y-calefont.jpg',
   },
   {
     name: 'Radiadores y Calefacción',
     description: 'Radiadores, toalleros y sistemas de calefacción central.',
     icon: 'radiator',
-    image: 'https://picsum.photos/seed/radiadores-calefaccion/480/320',
+    image: '/images/inicio/categorias/radiadores-y-calefaccion.jpg',
   },
   {
     name: 'Limpieza de Redes',
     description: 'Limpieza y purga de redes de agua y calefacción.',
     icon: 'droplet',
-    image: 'https://picsum.photos/seed/limpieza-redes/480/320',
+    image: '/images/inicio/categorias/limpieza-de-redes.jpg',
   },
 ]
 

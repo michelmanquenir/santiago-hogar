@@ -71,11 +71,11 @@ export default function Hero() {
 
         <div className="hero__media">
           <img
-            src="https://picsum.photos/seed/tecnico-calefaccion/720/760"
+            src="/images/inicio/home.jpg"
             alt="Técnico de Santiago Hogar instalando una caldera"
             loading="eager"
-            width={720}
-            height={760}
+            width={1672}
+            height={941}
           />
           <div className="hero__badge">
             <Icon name="shield" size={22} />
