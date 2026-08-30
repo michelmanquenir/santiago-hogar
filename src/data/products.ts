@@ -188,7 +188,7 @@ export const products: Product[] = [
     name: 'Termostato Ambiental Programable ANWO ATP-1',
     category: 'Termostatos',
     brand: 'ANWO',
-    image: '/images/productos/termostato-programable-anwo-atp-1.jpg',
+    image: '/images/productos/termostato-programable-anwo-atp-1.png',
     price: 49990,
     tagline: 'Termostato con programación semanal y diaria para maximizar el confort.',
     summary: [
