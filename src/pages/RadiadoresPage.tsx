@@ -1,4 +1,4 @@
-import { contact } from '../data'
+import HelpAside from '../components/HelpAside'
 import Icon from '../components/Icon'
 import type { IconName } from '../components/Icon'
 import './page-shared.css'
@@ -106,82 +106,69 @@ export default function RadiadoresPage() {
           </div>
         </header>
 
-        <div className="rad-splits">
-          {splits.map((s) => (
-            <article
-              key={s.title}
-              className={`rad-split rad-split--${s.accent}`}
-            >
-              <div className="rad-split__intro">
-                <div className="rad-split__head">
-                  <span className="rad-split__icon">
-                    <Icon name={s.icon} size={22} />
-                  </span>
-                  <h2>{s.title}</h2>
-                </div>
-                <p>{s.description}</p>
-              </div>
+        <div className="page-layout">
+          <div className="rad-main">
+            <div className="rad-splits">
+              {splits.map((s) => (
+                <article
+                  key={s.title}
+                  className={`rad-split rad-split--${s.accent}`}
+                >
+                  <div className="rad-split__intro">
+                    <div className="rad-split__head">
+                      <span className="rad-split__icon">
+                        <Icon name={s.icon} size={22} />
+                      </span>
+                      <h2>{s.title}</h2>
+                    </div>
+                    <p>{s.description}</p>
+                  </div>
 
-              <ul className="rad-split__list">
-                {s.bullets.map((b) => (
-                  <li key={b}>
-                    <Icon name="check" size={15} />
-                    {b}
-                  </li>
+                  <ul className="rad-split__list">
+                    {s.bullets.map((b) => (
+                      <li key={b}>
+                        <Icon name="check" size={15} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    className={`btn rad-split__cta ${
+                      s.accent === 'red' ? 'btn--red' : ''
+                    }`}
+                    href={s.href}
+                  >
+                    {s.cta}
+                    <Icon name="arrow-right" size={16} />
+                  </a>
+                </article>
+              ))}
+            </div>
+
+            <section className="rad-equipos">
+              <h2>Equipos que atendemos</h2>
+              <div className="rad-equipos__grid">
+                {equipos.map((e) => (
+                  <a key={e.name} className="rad-equipo" href={e.href}>
+                    <div className="rad-equipo__media">
+                      <img src={e.image} alt={e.name} loading="lazy" />
+                    </div>
+                    <div className="rad-equipo__body">
+                      <h3>{e.name}</h3>
+                      <p>{e.description}</p>
+                      <span className="rad-equipo__link">
+                        Ver equipo <Icon name="arrow-right" size={15} />
+                      </span>
+                    </div>
+                  </a>
                 ))}
-              </ul>
+              </div>
+            </section>
+          </div>
 
-              <a
-                className={`btn rad-split__cta ${
-                  s.accent === 'red' ? 'btn--red' : ''
-                }`}
-                href={s.href}
-              >
-                {s.cta}
-                <Icon name="arrow-right" size={16} />
-              </a>
-            </article>
-          ))}
+          <HelpAside ctaLabel="Solicitar servicio" />
         </div>
-
-        <section className="rad-equipos">
-          <h2>Equipos que atendemos</h2>
-          <div className="rad-equipos__grid">
-            {equipos.map((e) => (
-              <a key={e.name} className="rad-equipo" href={e.href}>
-                <div className="rad-equipo__media">
-                  <img src={e.image} alt={e.name} loading="lazy" />
-                </div>
-                <div className="rad-equipo__body">
-                  <h3>{e.name}</h3>
-                  <p>{e.description}</p>
-                  <span className="rad-equipo__link">
-                    Ver equipo <Icon name="arrow-right" size={15} />
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        <section className="rad-cta">
-          <div>
-            <h2>¿Necesitas asesoría?</h2>
-            <p>
-              Te ayudamos a elegir la mejor solución de calefacción para tu
-              espacio.
-            </p>
-          </div>
-          <a
-            className="btn btn--whatsapp"
-            href={contact.whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="whatsapp" size={18} />
-            Contactar por WhatsApp
-          </a>
-        </section>
       </div>
     </div>
   )

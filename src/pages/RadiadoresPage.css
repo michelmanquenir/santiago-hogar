@@ -1,6 +1,5 @@
 .rad {
   background: #fff;
-  padding-bottom: 64px;
 }
 
 /* ---- Hero: título + dos imágenes ---- */
@@ -35,16 +34,15 @@
 /* ---- Tarjetas Radiadores / Termostatos ---- */
 .rad-splits {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin-top: 32px;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
 .rad-split {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px 26px;
+  gap: 16px 28px;
   padding: 24px 26px;
   background: #fff;
   border-radius: var(--radius-lg);
@@ -52,7 +50,7 @@
 }
 
 .rad-split__intro {
-  flex: 1 1 200px;
+  flex: 1 1 220px;
 }
 
 .rad-split__head {
@@ -122,7 +120,7 @@
 
 /* ---- Equipos que atendemos ---- */
 .rad-equipos {
-  margin-top: 52px;
+  margin-top: 44px;
 }
 
 .rad-equipos > h2 {
@@ -135,7 +133,7 @@
 
 .rad-equipos__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 20px;
 }
 
@@ -205,65 +203,20 @@
   gap: 9px;
 }
 
-/* ---- CTA final ---- */
-.rad-cta {
-  margin-top: 52px;
-  background: linear-gradient(90deg, var(--navy), var(--red));
-  border-radius: var(--radius-lg);
-  padding: 26px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  color: #fff;
-}
-
-.rad-cta h2 {
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-}
-
-.rad-cta p {
-  font-size: 0.9rem;
-  opacity: 0.9;
-  margin-top: 4px;
-}
-
-.rad-cta .btn--whatsapp {
-  flex-shrink: 0;
-}
-
 /* ---- Responsive ---- */
 @media (max-width: 1024px) {
   .rad-hero {
     grid-template-columns: 1fr;
     gap: 26px;
   }
-  .rad-splits {
-    grid-template-columns: 1fr;
-  }
-  .rad-equipos__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 560px) {
   .rad-hero__media {
-    grid-template-columns: 1fr 1fr;
-  }
-  .rad-equipos__grid {
     grid-template-columns: 1fr;
   }
   .rad-split__cta {
     margin-left: 0;
     width: 100%;
-  }
-  .rad-cta {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
