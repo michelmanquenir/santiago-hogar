@@ -49,11 +49,11 @@ export default function Hero() {
             </a>
           </div>
           <div className="hero__cta">
-            <a className="btn btn--ghost" href="#/productos">
+            <a className="btn btn--ghost" href="/productos">
               <Icon name="cart" size={18} />
               Ver productos
             </a>
-            <a className="btn btn--ghost" href="#/servicio-tecnico-de-gas">
+            <a className="btn btn--ghost" href="/servicio-tecnico-de-gas">
               <Icon name="wrench" size={18} />
               Solicitar servicio
             </a>

@@ -9,7 +9,7 @@ import './ProductoDetallePage.css'
 
 /** Arma el enlace de WhatsApp con la consulta de disponibilidad del producto. */
 function buildWhatsAppHref(product: Product): string {
-  const url = `${window.location.origin}${window.location.pathname}#/producto/${product.slug}`
+  const url = `${window.location.origin}/producto/${product.slug}`
   const specs = product.specs
     .slice(0, 4)
     .map((s) => `• ${s.label}: ${s.value}`)
@@ -40,11 +40,11 @@ export default function ProductoDetallePage({ product }: { product: Product }) {
       <div className="container page-layout">
         <div className="pd-main">
           <nav className="page-crumb" aria-label="Ruta de navegación">
-            <a href="#/">Inicio</a>
+            <a href="/">Inicio</a>
             <span className="page-crumb__sep">/</span>
-            <a href="#/productos">Productos</a>
+            <a href="/productos">Productos</a>
             <span className="page-crumb__sep">/</span>
-            <a href={`#/productos/${product.category.toLowerCase()}`}>
+            <a href={`/productos/${product.category.toLowerCase()}`}>
               {product.category}
             </a>
             <span className="page-crumb__sep">/</span>
@@ -78,7 +78,7 @@ export default function ProductoDetallePage({ product }: { product: Product }) {
                   <Icon name="whatsapp" size={18} />
                   Consultar por WhatsApp
                 </a>
-                <a className="btn btn--ghost" href="#/productos">
+                <a className="btn btn--ghost" href="/productos">
                   Volver al catálogo
                 </a>
               </div>

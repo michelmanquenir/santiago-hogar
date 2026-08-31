@@ -25,9 +25,9 @@ export default function CategoryPage({
       <div className="container page-layout">
         <div className="cat-main">
           <nav className="page-crumb" aria-label="Ruta de navegación">
-            <a href="#/">Inicio</a>
+            <a href="/">Inicio</a>
             <span className="page-crumb__sep">/</span>
-            <a href="#categorias">Categorías</a>
+            <a href="/#categorias">Categorías</a>
             <span className="page-crumb__sep">/</span>
             <span className="page-crumb__current">{crumb}</span>
           </nav>
@@ -71,7 +71,7 @@ export default function CategoryPage({
                   </ul>
                   <a
                     className={`btn ${s.accent === 'red' ? 'btn--red' : ''}`}
-                    href="#productos"
+                    href="/productos"
                   >
                     {s.cta}
                     <Icon name="arrow-right" size={16} />
@@ -109,7 +109,7 @@ export default function CategoryPage({
             </div>
 
             <div className="cat-featured__all">
-              <a className="btn btn--ghost" href="#productos">
+              <a className="btn btn--ghost" href="/productos">
                 Ver todos los productos
                 <Icon name="arrow-right" size={16} />
               </a>

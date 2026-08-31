@@ -15,7 +15,7 @@ export default function Navbar() {
           Categorías
         </button>
 
-        <a href="#/" className="nav__brand">
+        <a href="/" className="nav__brand">
           <Logo />
         </a>
 

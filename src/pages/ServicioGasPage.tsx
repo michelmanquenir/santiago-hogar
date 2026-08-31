@@ -57,9 +57,9 @@ export default function ServicioGasPage() {
     <div className="svc">
       <div className="container">
         <nav className="page-crumb" aria-label="Ruta de navegación">
-          <a href="#/">Inicio</a>
+          <a href="/">Inicio</a>
           <span className="page-crumb__sep">/</span>
-          <a href="#categorias">Categorías</a>
+          <a href="/#categorias">Categorías</a>
           <span className="page-crumb__sep">/</span>
           <span className="page-crumb__current">
             Servicio técnico de calderas y calefont
@@ -105,7 +105,7 @@ export default function ServicioGasPage() {
                     </span>
                     <h3>{s.title}</h3>
                     <p>{s.description}</p>
-                    <a className="svc-card__link" href="#/">
+                    <a className="svc-card__link" href="/#contacto">
                       Solicitar servicio <Icon name="arrow-right" size={15} />
                     </a>
                   </article>

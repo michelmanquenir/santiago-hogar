@@ -85,9 +85,9 @@ export default function LimpiezaRedesPage() {
       <div className="container page-layout">
         <div className="lr-main">
           <nav className="page-crumb" aria-label="Ruta de navegación">
-            <a href="#/">Inicio</a>
+            <a href="/">Inicio</a>
             <span className="page-crumb__sep">/</span>
-            <a href="#categorias">Categorías</a>
+            <a href="/#categorias">Categorías</a>
             <span className="page-crumb__sep">/</span>
             <span className="page-crumb__current">Limpieza de redes</span>
           </nav>

@@ -23,23 +23,23 @@ export type NavItem = {
 }
 
 export const navItems: NavItem[] = [
-  { label: 'Inicio', href: '#/' },
-  { label: 'Productos', href: '#/productos' },
+  { label: 'Inicio', href: '/' },
+  { label: 'Productos', href: '/productos' },
   {
     label: 'Servicios',
-    href: '#/servicio-tecnico-de-gas',
+    href: '/servicio-tecnico-de-gas',
     children: [
       {
         label: 'Servicio Técnico de Calderas y Calefont',
-        href: '#/servicio-tecnico-de-gas',
+        href: '/servicio-tecnico-de-gas',
       },
-      { label: 'Radiadores y Calefacción', href: '#/radiadores-y-calefaccion' },
-      { label: 'Limpieza de Redes', href: '#/limpieza-de-redes' },
+      { label: 'Radiadores y Calefacción', href: '/radiadores-y-calefaccion' },
+      { label: 'Limpieza de Redes', href: '/limpieza-de-redes' },
     ],
   },
-  { label: 'Marcas', href: '#marcas' },
-  { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Marcas', href: '/#marcas' },
+  { label: 'Nosotros', href: '/#nosotros' },
+  { label: 'Contacto', href: '/#contacto' },
 ]
 
 export type Category = {
@@ -187,6 +187,5 @@ export const categoryRoutes: Record<string, string> = {
 
 /** Devuelve el href para una categoría o servicio del menú. */
 export function categoryHref(name: string): string {
-  const route = categoryRoutes[name]
-  return route ? `#${route}` : '#categorias'
+  return categoryRoutes[name] ?? '/#categorias'
 }

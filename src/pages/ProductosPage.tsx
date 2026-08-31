@@ -23,11 +23,11 @@ export default function ProductosPage({
     <div className="prods">
       <div className="container">
         <nav className="page-crumb" aria-label="Ruta de navegación">
-          <a href="#/">Inicio</a>
+          <a href="/">Inicio</a>
           <span className="page-crumb__sep">/</span>
           {activeCategory ? (
             <>
-              <a href="#/productos">Productos</a>
+              <a href="/productos">Productos</a>
               <span className="page-crumb__sep">/</span>
               <span className="page-crumb__current">{activeCategory}</span>
             </>
@@ -47,7 +47,7 @@ export default function ProductosPage({
 
         <div className="prods__filters" role="tablist" aria-label="Filtrar por categoría">
           <a
-            href="#/productos"
+            href="/productos"
             className={`prods__chip ${!activeCategory ? 'is-active' : ''}`}
           >
             Todos
@@ -55,7 +55,7 @@ export default function ProductosPage({
           {productCategories.map((c) => (
             <a
               key={c}
-              href={`#/productos/${categorySlug(c)}`}
+              href={`/productos/${categorySlug(c)}`}
               className={`prods__chip ${
                 activeCategory === c ? 'is-active' : ''
               }`}

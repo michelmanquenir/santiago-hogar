@@ -15,7 +15,7 @@ const cards: FeaturedCard[] = [
     name: 'Calefont ANWO Htech Hydro 18',
     description: 'Disponible en múltiples capacidades: 10L / 13L / 16L / 24L',
     image: '/images/productos/calefont-anwo-hitech-hydro-18.jpg',
-    href: '#/producto/calefont-anwo-hitech-hydro-18',
+    href: '/producto/calefont-anwo-hitech-hydro-18',
   },
   {
     category: 'Calderas',
@@ -23,7 +23,7 @@ const cards: FeaturedCard[] = [
     description:
       'Disponible en múltiples capacidades: 20/22 – 30/32 – 35/42 – 40/42',
     image: '/images/productos/caldera-anwo-aqua-plus-2-0.jpg',
-    href: '#/producto/caldera-anwo-aqua-plus-2-0',
+    href: '/producto/caldera-anwo-aqua-plus-2-0',
   },
   {
     category: 'Radiadores',
@@ -31,14 +31,14 @@ const cards: FeaturedCard[] = [
     description:
       'Disponible en múltiples capacidades: 500x400 / 500x600 / 500x800 / 500x1000 / 500x1200 / 500x1400',
     image: '/images/productos/radiador-simple-anwo-ek.jpg',
-    href: '#/producto/radiador-simple-anwo-ek',
+    href: '/producto/radiador-simple-anwo-ek',
   },
   {
     category: 'Termostatos',
     name: 'Termostatos ANWO',
     description: 'Disponible en versiones simples o programables.',
     image: '/images/productos/termostato-programable-anwo-atp-1.png',
-    href: '#/producto/termostato-programable-anwo-atp-1',
+    href: '/producto/termostato-programable-anwo-atp-1',
   },
 ]
 
@@ -69,7 +69,7 @@ export default function FeaturedProducts() {
         </div>
 
         <div className="products__all">
-          <a className="btn btn--ghost" href="#/productos">
+          <a className="btn btn--ghost" href="/productos">
             Ver todos los productos
             <Icon name="arrow-right" size={16} />
           </a>
