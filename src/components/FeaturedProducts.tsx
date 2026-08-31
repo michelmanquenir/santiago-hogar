@@ -1,19 +1,48 @@
-import { useRef } from 'react'
-import { formatCLP } from '../data'
-import { products } from '../data/products'
 import Icon from './Icon'
 import './FeaturedProducts.css'
 
+type FeaturedCard = {
+  category: string
+  name: string
+  description: string
+  image: string
+  href: string
+}
+
+const cards: FeaturedCard[] = [
+  {
+    category: 'Calefont',
+    name: 'Calefont ANWO Htech Hydro 18',
+    description: 'Disponible en múltiples capacidades: 10L / 13L / 16L / 24L',
+    image: '/images/productos/calefont-anwo-hitech-hydro-18.jpg',
+    href: '#/producto/calefont-anwo-hitech-hydro-18',
+  },
+  {
+    category: 'Calderas',
+    name: 'Caldera ANWO Aqua Plus 2.0',
+    description:
+      'Disponible en múltiples capacidades: 20/22 – 30/32 – 35/42 – 40/42',
+    image: '/images/productos/caldera-anwo-aqua-plus-2-0.jpg',
+    href: '#/producto/caldera-anwo-aqua-plus-2-0',
+  },
+  {
+    category: 'Radiadores',
+    name: 'Radiadores',
+    description:
+      'Disponible en múltiples capacidades: 500x400 / 500x600 / 500x800 / 500x1000 / 500x1200 / 500x1400',
+    image: '/images/productos/radiador-simple-anwo-ek.jpg',
+    href: '#/producto/radiador-simple-anwo-ek',
+  },
+  {
+    category: 'Termostatos',
+    name: 'Termostatos ANWO',
+    description: 'Disponible en versiones simples o programables.',
+    image: '/images/productos/termostato-programable-anwo-atp-1.png',
+    href: '#/producto/termostato-programable-anwo-atp-1',
+  },
+]
+
 export default function FeaturedProducts() {
-  const trackRef = useRef<HTMLDivElement>(null)
-
-  const scroll = (dir: 1 | -1) => {
-    const track = trackRef.current
-    if (!track) return
-    const amount = track.clientWidth * 0.8 * dir
-    track.scrollBy({ left: amount, behavior: 'smooth' })
-  }
-
   return (
     <section className="section products" id="productos">
       <div className="container">
@@ -21,55 +50,22 @@ export default function FeaturedProducts() {
           <h2>Productos destacados</h2>
         </div>
 
-        <div className="products__carousel">
-          <button
-            className="products__arrow products__arrow--prev"
-            type="button"
-            aria-label="Anterior"
-            onClick={() => scroll(-1)}
-          >
-            <Icon name="chevron-left" size={20} />
-          </button>
-
-          <div className="products__track" ref={trackRef}>
-            {products.map((p) => (
-              <a
-                key={p.slug}
-                className="product-card"
-                href={`#/producto/${p.slug}`}
-              >
-                <div className="product-card__media">
-                  <img src={p.image} alt={p.name} loading="lazy" />
-                </div>
-                <div className="product-card__body">
-                  <span className="product-card__cat">{p.category}</span>
-                  <h3>{p.name}</h3>
-                  {p.price != null && (
-                    <div className="product-card__price">
-                      Desde {formatCLP(p.price)}
-                    </div>
-                  )}
-                  {p.installIncluded && (
-                    <p className="product-card__tag">
-                      <span className="dot" /> Instalación incluida
-                    </p>
-                  )}
-                  <span className="product-card__link">
-                    Ver producto <Icon name="arrow-right" size={15} />
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-
-          <button
-            className="products__arrow products__arrow--next"
-            type="button"
-            aria-label="Siguiente"
-            onClick={() => scroll(1)}
-          >
-            <Icon name="chevron-right" size={20} />
-          </button>
+        <div className="products__grid">
+          {cards.map((c) => (
+            <a key={c.name} className="product-card" href={c.href}>
+              <div className="product-card__media">
+                <img src={c.image} alt={c.name} loading="lazy" />
+              </div>
+              <div className="product-card__body">
+                <span className="product-card__cat">{c.category}</span>
+                <h3>{c.name}</h3>
+                <p className="product-card__tagline">{c.description}</p>
+                <span className="product-card__link">
+                  Ver producto <Icon name="arrow-right" size={15} />
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
 
         <div className="products__all">

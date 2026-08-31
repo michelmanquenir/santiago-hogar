@@ -2,8 +2,8 @@ import type { IconName } from './components/Icon'
 
 export const contact = {
   phone: '(2) 288 812 93',
-  whatsapp: '+56 9 8898 8811',
-  whatsappHref: 'https://wa.me/56988988811',
+  whatsapp: '+56 9 5528 1193',
+  whatsappHref: 'https://wa.me/56955281193',
   email: 'serviciossantiagohogar@gmail.com',
   address: 'Santiago, Región Metropolitana',
   /** Número dedicado a consultas de productos / disponibilidad. */
@@ -29,8 +29,10 @@ export const navItems: NavItem[] = [
     label: 'Servicios',
     href: '#/servicio-tecnico-de-gas',
     children: [
-      { label: 'Servicio Técnico de Gas', href: '#/servicio-tecnico-de-gas' },
-      { label: 'Calderas y Calefont', href: '#/calderas-y-calefont' },
+      {
+        label: 'Servicio Técnico de Calderas y Calefont',
+        href: '#/servicio-tecnico-de-gas',
+      },
       { label: 'Radiadores y Calefacción', href: '#/radiadores-y-calefaccion' },
       { label: 'Limpieza de Redes', href: '#/limpieza-de-redes' },
     ],
@@ -49,15 +51,10 @@ export type Category = {
 
 export const categories: Category[] = [
   {
-    name: 'Servicio Técnico de Gas',
-    description: 'Instalación y reparación certificada de equipos a gas.',
+    name: 'Servicio Técnico de Calderas y Calefont',
+    description:
+      'Instalación, mantención y reparación certificada de calderas y calefont.',
     icon: 'wrench',
-    image: '/images/inicio/categorias/servicio-tecnico-de-gas.jpg',
-  },
-  {
-    name: 'Calderas y Calefont',
-    description: 'Venta, instalación y mantención de calderas y calefont.',
-    icon: 'flame',
     image: '/images/inicio/categorias/calderas-y-calefont.jpg',
   },
   {
@@ -161,8 +158,7 @@ export const reviews: Review[] = [
 export const footerLinks = {
   'Enlaces Rápidos': ['Inicio', 'Productos', 'Servicios', 'Marcas', 'Nosotros', 'Contacto'],
   Categorías: [
-    'Servicio Técnico de Gas',
-    'Calderas y Calefont',
+    'Servicio Técnico de Calderas y Calefont',
     'Radiadores y Calefacción',
     'Limpieza de Redes',
   ],
@@ -184,8 +180,7 @@ export function formatCLP(value: number): string {
 
 /** Categorías que ya tienen página propia maquetada. */
 export const categoryRoutes: Record<string, string> = {
-  'Servicio Técnico de Gas': '/servicio-tecnico-de-gas',
-  'Calderas y Calefont': '/calderas-y-calefont',
+  'Servicio Técnico de Calderas y Calefont': '/servicio-tecnico-de-gas',
   'Radiadores y Calefacción': '/radiadores-y-calefaccion',
   'Limpieza de Redes': '/limpieza-de-redes',
 }

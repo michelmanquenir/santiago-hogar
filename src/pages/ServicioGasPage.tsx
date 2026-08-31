@@ -61,22 +61,26 @@ export default function ServicioGasPage() {
           <span className="page-crumb__sep">/</span>
           <a href="#categorias">Categorías</a>
           <span className="page-crumb__sep">/</span>
-          <span className="page-crumb__current">Servicio técnico de gas</span>
+          <span className="page-crumb__current">
+            Servicio técnico de calderas y calefont
+          </span>
         </nav>
 
         <header className="svc-hero">
           <div className="svc-hero__text">
-            <h1 className="page-title">Servicio Técnico de Gas</h1>
+            <h1 className="page-title">
+              Servicio Técnico de Calderas y Calefont
+            </h1>
             <p>
-              Instalación, mantención y reparación de equipos a gas. Contamos con
-              técnicos certificados para asegurar el máximo rendimiento y
-              seguridad de tus equipos.
+              Instalación, mantención y reparación de calderas y calefont.
+              Contamos con técnicos certificados para asegurar el máximo
+              rendimiento y seguridad de tus equipos.
             </p>
           </div>
           <div className="svc-hero__img">
             <img
               src="/images/servicios/servicio-tecnico-de-gas/hero.jpg"
-              alt="Técnico realizando servicio a una caldera a gas"
+              alt="Técnico realizando servicio a una caldera"
               width={1672}
               height={941}
             />
