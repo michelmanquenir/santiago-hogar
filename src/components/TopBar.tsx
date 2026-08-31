@@ -1,4 +1,4 @@
-import { contact } from '../data'
+import { contact, socials } from '../data'
 import Icon from './Icon'
 import './TopBar.css'
 
@@ -26,15 +26,11 @@ export default function TopBar() {
         </div>
         <div className="topbar__social">
           <span>Síguenos:</span>
-          <a href="#" aria-label="Facebook">
-            <Icon name="facebook" size={15} />
-          </a>
-          <a href="#" aria-label="Instagram">
-            <Icon name="instagram" size={15} />
-          </a>
-          <a href="#" aria-label="YouTube">
-            <Icon name="youtube" size={15} />
-          </a>
+          {socials.map((s) => (
+            <a key={s.label} href={s.href} aria-label={s.label}>
+              <Icon name={s.icon} size={15} />
+            </a>
+          ))}
         </div>
       </div>
     </div>

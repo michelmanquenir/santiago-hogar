@@ -1,4 +1,4 @@
-import { contact, footerLinks, paymentMethods } from '../data'
+import { contact, footerLinks, paymentMethods, socials } from '../data'
 import Icon from './Icon'
 import Logo from './Logo'
 import './Footer.css'
@@ -14,17 +14,18 @@ export default function Footer() {
             compromiso.
           </p>
           <div className="footer__social">
-            <a href="#" aria-label="Facebook">
-              <Icon name="facebook" size={16} />
-            </a>
-            <a href="#" aria-label="Instagram">
-              <Icon name="instagram" size={16} />
-            </a>
-            <a href="#" aria-label="WhatsApp">
+            {socials.map((s) => (
+              <a key={s.label} href={s.href} aria-label={s.label}>
+                <Icon name={s.icon} size={16} />
+              </a>
+            ))}
+            <a
+              href={contact.whatsappHref}
+              aria-label="WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon name="whatsapp" size={16} />
-            </a>
-            <a href="#" aria-label="YouTube">
-              <Icon name="youtube" size={16} />
             </a>
           </div>
         </div>
@@ -34,8 +35,8 @@ export default function Footer() {
             <h3>{title}</h3>
             <ul>
               {links.map((l) => (
-                <li key={l}>
-                  <a href="#">{l}</a>
+                <li key={l.label}>
+                  <a href={l.href}>{l.label}</a>
                 </li>
               ))}
             </ul>

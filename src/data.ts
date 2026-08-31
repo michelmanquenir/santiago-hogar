@@ -156,24 +156,50 @@ export const reviews: Review[] = [
   },
 ]
 
-export const footerLinks = {
-  'Enlaces Rápidos': ['Inicio', 'Productos', 'Servicios', 'Marcas', 'Nosotros', 'Contacto'],
+export type FooterLink = {
+  label: string
+  href: string
+}
+
+export const footerLinks: Record<string, FooterLink[]> = {
+  'Enlaces Rápidos': [
+    { label: 'Inicio', href: '/' },
+    { label: 'Productos', href: '/productos' },
+    { label: 'Servicios', href: '/servicio-tecnico-de-gas' },
+    { label: 'Marcas', href: '/#marcas' },
+    { label: 'Nosotros', href: '/#nosotros' },
+    { label: 'Contacto', href: '/#contacto' },
+  ],
   Categorías: [
-    'Servicio Técnico de Calderas y Calefont',
-    'Radiadores y Calefacción',
-    'Limpieza de Redes',
+    {
+      label: 'Servicio Técnico de Calderas y Calefont',
+      href: '/servicio-tecnico-de-gas',
+    },
+    { label: 'Radiadores y Calefacción', href: '/radiadores-y-calefaccion' },
+    { label: 'Limpieza de Redes', href: '/limpieza-de-redes' },
   ],
   Servicios: [
-    'Instalación',
-    'Mantención',
-    'Reparación',
-    'Limpieza de redes',
-    'Venta de artefactos',
-    'Servicio técnico',
+    { label: 'Instalación', href: '/servicio-tecnico-de-gas' },
+    { label: 'Mantención', href: '/servicio-tecnico-de-gas' },
+    { label: 'Reparación', href: '/servicio-tecnico-de-gas' },
+    { label: 'Limpieza de redes', href: '/limpieza-de-redes' },
+    { label: 'Venta de artefactos', href: '/productos' },
+    { label: 'Servicio técnico', href: '/servicio-tecnico-de-gas' },
   ],
 }
 
 export const paymentMethods = ['Mercado Pago', 'VISA', 'Mastercard', 'Magna', 'Redcompra']
+
+/**
+ * Redes sociales. Reemplazar `href` por las URLs reales (ej.
+ * 'https://instagram.com/santiagohogar'); mientras estén en '#' quedan
+ * inertes.
+ */
+export const socials: { label: string; icon: IconName; href: string }[] = [
+  { label: 'Facebook', icon: 'facebook', href: '#' },
+  { label: 'Instagram', icon: 'instagram', href: '#' },
+  { label: 'YouTube', icon: 'youtube', href: '#' },
+]
 
 export function formatCLP(value: number): string {
   return '$' + value.toLocaleString('es-CL')
