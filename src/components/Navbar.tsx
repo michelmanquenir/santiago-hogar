@@ -1,6 +1,8 @@
-import { useState } from 'react'
-import { contact, navItems } from '../data'
+import { useEffect, useRef, useState } from 'react'
+import type { FormEvent } from 'react'
+import { categories, categoryHref, contact, navItems } from '../data'
 import type { NavItem } from '../data'
+import { productCategories, categorySlug } from '../data/products'
 import Icon from './Icon'
 import Logo from './Logo'
 import './Navbar.css'
@@ -19,9 +21,7 @@ function isActive(item: NavItem, path: string): boolean {
 
   // "Servicios" cubre cualquiera de sus subrutas.
   if (
-    item.children?.some(
-      (c) => path === c.href || path.startsWith(c.href + '/'),
-    )
+    item.children?.some((c) => path === c.href || path.startsWith(c.href + '/'))
   ) {
     return true
   }
@@ -29,28 +29,97 @@ function isActive(item: NavItem, path: string): boolean {
   return false
 }
 
-export default function Navbar({ path }: { path: string }) {
+type NavbarProps = {
+  path: string
+  query: string
+  navigate: (to: string) => void
+}
+
+export default function Navbar({ path, query, navigate }: NavbarProps) {
   const [open, setOpen] = useState(false)
+  const [catsOpen, setCatsOpen] = useState(false)
+  const catsRef = useRef<HTMLDivElement>(null)
+
+  // Cerrar el panel de categorías al hacer clic fuera o con Escape.
+  useEffect(() => {
+    if (!catsOpen) return
+    const onDocClick = (e: MouseEvent) => {
+      if (!catsRef.current?.contains(e.target as Node)) setCatsOpen(false)
+    }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setCatsOpen(false)
+    }
+    document.addEventListener('mousedown', onDocClick)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onDocClick)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [catsOpen])
+
+  const onSearch = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const value = new FormData(e.currentTarget).get('q')
+    const q = typeof value === 'string' ? value.trim() : ''
+    navigate(q ? `/productos?q=${encodeURIComponent(q)}` : '/productos')
+    setOpen(false)
+  }
 
   return (
     <header className="nav">
       <div className="container nav__top">
-        <button className="nav__cats" type="button">
-          <Icon name="menu" size={18} />
-          Categorías
-        </button>
+        <div className="nav__cats-wrap" ref={catsRef}>
+          <button
+            className={`nav__cats ${catsOpen ? 'is-open' : ''}`}
+            type="button"
+            aria-haspopup="true"
+            aria-expanded={catsOpen}
+            onClick={() => setCatsOpen((v) => !v)}
+          >
+            <Icon name="menu" size={18} />
+            Categorías
+            <Icon name="chevron-down" size={15} />
+          </button>
+
+          {catsOpen && (
+            <div className="nav__cats-panel" onClick={() => setCatsOpen(false)}>
+              <p className="nav__cats-title">Productos</p>
+              <ul>
+                {productCategories.map((c) => (
+                  <li key={c}>
+                    <a href={`/productos/${categorySlug(c)}`}>{c}</a>
+                  </li>
+                ))}
+                <li>
+                  <a href="/productos" className="nav__cats-all">
+                    Ver todo el catálogo
+                    <Icon name="arrow-right" size={14} />
+                  </a>
+                </li>
+              </ul>
+
+              <p className="nav__cats-title">Servicios</p>
+              <ul>
+                {categories.map((cat) => (
+                  <li key={cat.name}>
+                    <a href={categoryHref(cat.name)}>{cat.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
 
         <a href="/" className="nav__brand">
           <Logo />
         </a>
 
-        <form
-          className="nav__search"
-          role="search"
-          onSubmit={(e) => e.preventDefault()}
-        >
+        <form className="nav__search" role="search" onSubmit={onSearch}>
           <input
+            key={query}
+            name="q"
             type="search"
+            defaultValue={query}
             placeholder="Buscar calderas, calefones, radiadores..."
             aria-label="Buscar productos"
           />

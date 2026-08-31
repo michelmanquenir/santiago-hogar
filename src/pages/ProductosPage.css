@@ -35,10 +35,38 @@
   color: #fff;
 }
 
+.prods__clear {
+  color: var(--red);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.prods__clear:hover {
+  text-decoration: underline;
+}
+
 .prods__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 22px;
+}
+
+.prods__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 56px 20px;
+  color: var(--body);
+}
+
+.prods__empty svg {
+  color: var(--muted);
+}
+
+.prods__empty .btn {
+  background: #fff;
 }
 
 @media (max-width: 1100px) {

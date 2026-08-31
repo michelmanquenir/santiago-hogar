@@ -214,3 +214,35 @@ export function productBySlug(slug: string): Product | undefined {
 export function categorySlug(category: ProductCategory): string {
   return category.toLowerCase()
 }
+
+/** Minúsculas y sin acentos, para comparar texto de búsqueda. */
+function normalize(text: string): string {
+  return text
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLowerCase()
+}
+
+/**
+ * Busca productos por nombre, categoría, marca, descripción o características.
+ * Todas las palabras de la consulta deben aparecer en el producto.
+ */
+export function searchProducts(query: string): Product[] {
+  const terms = normalize(query).split(/\s+/).filter(Boolean)
+  if (terms.length === 0) return []
+
+  return products.filter((product) => {
+    const haystack = normalize(
+      [
+        product.name,
+        product.category,
+        product.brand,
+        product.tagline,
+        ...product.summary,
+        ...product.features,
+        ...product.specs.map((s) => `${s.label} ${s.value}`),
+      ].join(' '),
+    )
+    return terms.every((term) => haystack.includes(term))
+  })
+}

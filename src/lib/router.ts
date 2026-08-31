@@ -1,49 +1,59 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 /**
  * Router mínimo basado en la History API (URLs limpias, sin `#`).
  *
- * - Devuelve el `pathname` actual y re-renderiza al cambiar.
+ * - Devuelve `{ route, navigate }`. `route` es `pathname + search` y
+ *   re-renderiza al cambiar (incluye cambios de `?query=`).
  * - Intercepta los clics en enlaces internos (`<a href="/...">`) para navegar
  *   sin recargar la página.
  * - Los enlaces externos, `tel:`, `mailto:`, `target="_blank"` y `download`
  *   se dejan pasar al navegador.
  * - Soporta anclas dentro de la página (`/#seccion`): navega y hace scroll.
+ * - `navigate(to)` permite navegar por código (ej. desde el buscador).
  *
  * Requiere que el hosting sirva `index.html` para cualquier ruta
  * (ver `vercel.json`).
  */
-export function useHistoryRoute(): string {
-  const [path, setPath] = useState(() => window.location.pathname || '/')
+function readRoute(): string {
+  return window.location.pathname + window.location.search
+}
 
-  useEffect(() => {
-    const scrollToHash = () => {
-      const id = decodeURIComponent(window.location.hash.slice(1))
-      if (!id) {
-        window.scrollTo({ top: 0 })
-        return
-      }
-      const el = document.getElementById(id)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
-      else window.scrollTo({ top: 0 })
-    }
+function scrollToHash() {
+  const id = decodeURIComponent(window.location.hash.slice(1))
+  if (!id) {
+    window.scrollTo({ top: 0 })
+    return
+  }
+  const el = document.getElementById(id)
+  if (el) el.scrollIntoView({ behavior: 'smooth' })
+  else window.scrollTo({ top: 0 })
+}
 
-    const navigate = (to: string) => {
-      const url = new URL(to, window.location.origin)
-      const samePage = url.pathname === window.location.pathname
-      window.history.pushState({}, '', url.pathname + url.search + url.hash)
+export function useHistoryRoute() {
+  const [route, setRoute] = useState(readRoute)
 
-      if (samePage) {
-        scrollToHash()
-        return
-      }
-      setPath(url.pathname)
-      // Espera a que React monte la nueva página antes de hacer scroll.
+  const navigate = useCallback((to: string) => {
+    const url = new URL(to, window.location.origin)
+    const samePath = url.pathname === window.location.pathname
+
+    window.history.pushState({}, '', url.pathname + url.search + url.hash)
+    setRoute(url.pathname + url.search)
+
+    if (url.hash) {
+      if (samePath) scrollToHash()
+      else
+        window.requestAnimationFrame(() =>
+          window.requestAnimationFrame(scrollToHash),
+        )
+    } else if (!samePath) {
       window.requestAnimationFrame(() =>
-        window.requestAnimationFrame(scrollToHash),
+        window.requestAnimationFrame(() => window.scrollTo({ top: 0 })),
       )
     }
+  }, [])
 
+  useEffect(() => {
     const onClick = (event: MouseEvent) => {
       if (
         event.defaultPrevented ||
@@ -76,13 +86,19 @@ export function useHistoryRoute(): string {
 
       event.preventDefault()
 
-      // Enlace "muerto" (href="#") o a la misma URL sin ancla: no hacer nada.
-      if (url.pathname === window.location.pathname && !url.hash) return
+      // URL idéntica a la actual (ej. href="#"): no hacer nada.
+      if (
+        url.pathname === window.location.pathname &&
+        url.search === window.location.search &&
+        !url.hash
+      ) {
+        return
+      }
 
       navigate(url.pathname + url.search + url.hash)
     }
 
-    const onPopState = () => setPath(window.location.pathname || '/')
+    const onPopState = () => setRoute(readRoute())
 
     document.addEventListener('click', onClick)
     window.addEventListener('popstate', onPopState)
@@ -90,7 +106,7 @@ export function useHistoryRoute(): string {
       document.removeEventListener('click', onClick)
       window.removeEventListener('popstate', onPopState)
     }
-  }, [])
+  }, [navigate])
 
-  return path
+  return { route, navigate }
 }

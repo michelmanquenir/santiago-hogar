@@ -12,14 +12,19 @@ import ProductosPage from './pages/ProductosPage'
 import RadiadoresPage from './pages/RadiadoresPage'
 import ServicioGasPage from './pages/ServicioGasPage'
 
-function renderRoute(path: string): ReactNode {
+function renderRoute(path: string, query: string): ReactNode {
   if (path === '/servicio-tecnico-de-gas') return <ServicioGasPage />
   if (path === '/radiadores-y-calefaccion') return <RadiadoresPage />
   if (path === '/limpieza-de-redes') return <LimpiezaRedesPage />
 
-  if (path === '/productos') return <ProductosPage />
+  if (path === '/productos') return <ProductosPage query={query} />
   if (path.startsWith('/productos/')) {
-    return <ProductosPage categorySlug={path.slice('/productos/'.length)} />
+    return (
+      <ProductosPage
+        categorySlug={path.slice('/productos/'.length)}
+        query={query}
+      />
+    )
   }
   if (path.startsWith('/producto/')) {
     const product = productBySlug(path.slice('/producto/'.length))
@@ -30,13 +35,20 @@ function renderRoute(path: string): ReactNode {
 }
 
 export default function App() {
-  const path = useHistoryRoute()
+  const { route, navigate } = useHistoryRoute()
+
+  const qIndex = route.indexOf('?')
+  const path = qIndex === -1 ? route : route.slice(0, qIndex)
+  const query =
+    qIndex === -1
+      ? ''
+      : (new URLSearchParams(route.slice(qIndex)).get('q') ?? '')
 
   return (
     <>
       <TopBar />
-      <Navbar path={path} />
-      <main>{renderRoute(path)}</main>
+      <Navbar path={path} query={query} navigate={navigate} />
+      <main>{renderRoute(path, query)}</main>
       <Footer />
       <FloatingActions />
     </>
