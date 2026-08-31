@@ -22,8 +22,6 @@ export type Product = {
   category: ProductCategory
   brand: string
   image: string
-  /** Precio "desde"; omitir si se cotiza a pedido. */
-  price?: number
   installIncluded?: boolean
   /** Frase corta para la tarjeta. */
   tagline: string
@@ -42,7 +40,6 @@ export const products: Product[] = [
     category: 'Calefont',
     brand: 'ANWO',
     image: '/images/productos/calefont-anwo-hitech-hydro-18.jpg',
-    price: 319990,
     installIncluded: true,
     tagline: 'Calefón mural de tiro forzado, 18 L/min con pantalla LED multifuncional.',
     summary: [
@@ -75,7 +72,6 @@ export const products: Product[] = [
     category: 'Calderas',
     brand: 'ANWO',
     image: '/images/productos/caldera-anwo-aqua-plus-2-0.jpg',
-    price: 1290000,
     installIncluded: true,
     tagline: 'Caldera mural convencional mixta, tiro forzado / balanceado.',
     summary: [
@@ -105,7 +101,6 @@ export const products: Product[] = [
     category: 'Radiadores',
     brand: 'ANWO',
     image: '/images/productos/radiador-simple-anwo-ek.jpg',
-    price: 44990,
     tagline: 'Radiador simple de acero: una placa y un convector.',
     summary: [
       'EK es un radiador simple formado por una placa y un convector.',
@@ -134,7 +129,6 @@ export const products: Product[] = [
     category: 'Radiadores',
     brand: 'ANWO',
     image: '/images/productos/radiador-doble-anwo-dk.jpg',
-    price: 69990,
     tagline: 'Radiador doble de acero: dos placas y dos convectores.',
     summary: [
       'DK es un radiador doble formado por dos placas y dos convectores.',
@@ -163,7 +157,6 @@ export const products: Product[] = [
     category: 'Termostatos',
     brand: 'ANWO',
     image: '/images/productos/termostato-simple-anwo-ats-touch.jpg',
-    price: 39990,
     tagline: 'Termostato digital simple con pantalla táctil, uso doméstico e industrial.',
     summary: [
       'Termostato digital simple con pantalla táctil (Touch Screen). Ofrece un rango de temperatura de 5 a 50 °C y un sensor electrónico para un óptimo control de la temperatura ambiente.',
@@ -189,7 +182,6 @@ export const products: Product[] = [
     category: 'Termostatos',
     brand: 'ANWO',
     image: '/images/productos/termostato-programable-anwo-atp-1.png',
-    price: 49990,
     tagline: 'Termostato con programación semanal y diaria para maximizar el confort.',
     summary: [
       'Termostato con programación semanal que permite establecer el nivel de confort mediante distintos programas de configuración.',

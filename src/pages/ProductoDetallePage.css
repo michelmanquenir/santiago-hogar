@@ -46,25 +46,11 @@
   color: var(--body);
 }
 
-.pd-hero__price {
-  margin-top: 18px;
-  font-size: 0.9rem;
-  color: var(--body);
-}
-
-.pd-hero__price strong {
-  display: block;
-  color: var(--red);
-  font-family: var(--heading);
-  font-weight: 800;
-  font-size: 1.7rem;
-}
-
 .pd-hero__badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 10px;
+  margin-top: 16px;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--navy);

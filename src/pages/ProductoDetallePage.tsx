@@ -1,4 +1,4 @@
-import { contact, formatCLP } from '../data'
+import { contact } from '../data'
 import type { Product } from '../data/products'
 import { products } from '../data/products'
 import HelpAside from '../components/HelpAside'
@@ -10,21 +10,16 @@ import './ProductoDetallePage.css'
 /** Arma el enlace de WhatsApp con la consulta de disponibilidad del producto. */
 function buildWhatsAppHref(product: Product): string {
   const url = `${window.location.origin}${window.location.pathname}#/producto/${product.slug}`
-  const price =
-    product.price != null
-      ? `Desde ${formatCLP(product.price)}`
-      : 'Valor a cotizar'
   const specs = product.specs
     .slice(0, 4)
     .map((s) => `• ${s.label}: ${s.value}`)
     .join('\n')
 
   const message = [
-    'Hola 👋, quiero consultar la *disponibilidad* de este producto:',
+    'Hola 👋, quiero consultar la *disponibilidad y el precio* de este producto:',
     '',
     `*${product.name}*`,
     `Categoría: ${product.category} · ${product.brand}`,
-    `Precio: ${price}`,
     ...(specs ? ['', specs] : []),
     '',
     `Ficha del producto: ${url}`,
@@ -67,11 +62,6 @@ export default function ProductoDetallePage({ product }: { product: Product }) {
               <h1>{product.name}</h1>
               <p className="pd-hero__tagline">{product.tagline}</p>
 
-              {product.price != null && (
-                <div className="pd-hero__price">
-                  Desde <strong>{formatCLP(product.price)}</strong>
-                </div>
-              )}
               {product.installIncluded && (
                 <p className="pd-hero__badge">
                   <Icon name="check" size={15} /> Instalación incluida

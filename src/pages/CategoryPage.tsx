@@ -1,4 +1,3 @@
-import { formatCLP } from '../data'
 import type { CategoryPageConfig } from '../data/categoryPages'
 import HelpAside from '../components/HelpAside'
 import Icon from '../components/Icon'
@@ -102,9 +101,6 @@ export default function CategoryPage({
                   </div>
                   <h3>{p.name}</h3>
                   {p.spec && <p className="cat-prod__spec">{p.spec}</p>}
-                  <p className="cat-prod__price">
-                    Desde <strong>{formatCLP(p.from)}</strong>
-                  </p>
                   <button className="cat-prod__btn" type="button">
                     {featuredCta}
                   </button>

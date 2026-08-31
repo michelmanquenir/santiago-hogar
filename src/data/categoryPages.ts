@@ -13,7 +13,6 @@ export type CategorySplit = {
 export type CategoryFeatured = {
   name: string
   spec?: string
-  from: number
   image: string
 }
 
@@ -76,27 +75,22 @@ export const categoryPages: Record<string, CategoryPageConfig> = {
     featured: [
       {
         name: 'Radiador Aluminio 500/100',
-        from: 89990,
         image: '/images/servicios/radiadores-y-calefaccion/destacados/radiador-simple-ek.jpg',
       },
       {
         name: 'Radiador Acero 600/1000',
-        from: 119990,
         image: '/images/servicios/radiadores-y-calefaccion/destacados/radiador-doble-dk.jpg',
       },
       {
         name: 'Radiador Toallero Blanco',
-        from: 129990,
         image: '/images/servicios/radiadores-y-calefaccion/destacados/secatoallas.jpg',
       },
       {
         name: 'Termostato Digital Programable',
-        from: 49990,
         image: '/images/servicios/radiadores-y-calefaccion/termostatos.jpg',
       },
       {
         name: 'Válvula Termostática Universal',
-        from: 24990,
         image: '/images/servicios/radiadores-y-calefaccion/destacados/valvulas-termostaticas.jpg',
       },
     ],

@@ -67,28 +67,10 @@
 .pcard__foot {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
   margin-top: 14px;
   padding-top: 12px;
   border-top: 1px solid var(--hairline);
-}
-
-.pcard__price {
-  font-size: 0.8rem;
-  color: var(--body);
-}
-
-.pcard__price strong {
-  display: block;
-  color: var(--red);
-  font-weight: 800;
-  font-size: 1rem;
-}
-
-.pcard__price--quote {
-  font-weight: 600;
-  color: var(--navy);
 }
 
 .pcard__link {

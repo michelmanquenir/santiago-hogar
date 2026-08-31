@@ -1,4 +1,3 @@
-import { formatCLP } from '../data'
 import type { Product } from '../data/products'
 import Icon from './Icon'
 import './ProductCard.css'
@@ -14,15 +13,6 @@ export default function ProductCard({ product }: { product: Product }) {
         <h3>{product.name}</h3>
         <p className="pcard__tagline">{product.tagline}</p>
         <div className="pcard__foot">
-          {product.price != null ? (
-            <span className="pcard__price">
-              Desde <strong>{formatCLP(product.price)}</strong>
-            </span>
-          ) : (
-            <span className="pcard__price pcard__price--quote">
-              Cotización a pedido
-            </span>
-          )}
           <span className="pcard__link">
             Ver producto <Icon name="arrow-right" size={15} />
           </span>
