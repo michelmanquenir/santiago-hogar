@@ -1,0 +1,269 @@
+.rad {
+  background: #fff;
+  padding-bottom: 64px;
+}
+
+/* ---- Hero: título + dos imágenes ---- */
+.rad-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 44px;
+  align-items: center;
+  padding-block: 8px 8px;
+}
+
+.rad-hero__text p {
+  margin-top: 18px;
+  max-width: 46ch;
+}
+
+.rad-hero__media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.rad-hero__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--bg-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- Tarjetas Radiadores / Termostatos ---- */
+.rad-splits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 32px;
+}
+
+.rad-split {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 26px;
+  padding: 24px 26px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.rad-split__intro {
+  flex: 1 1 200px;
+}
+
+.rad-split__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.rad-split__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.rad-split--red .rad-split__icon {
+  background: var(--red);
+}
+
+.rad-split--blue .rad-split__icon {
+  background: var(--navy);
+}
+
+.rad-split__head h2 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rad-split__intro p {
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.rad-split__list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.rad-split__list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.rad-split--red .rad-split__list svg {
+  color: var(--red);
+}
+
+.rad-split--blue .rad-split__list svg {
+  color: var(--navy);
+}
+
+.rad-split__cta {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* ---- Equipos que atendemos ---- */
+.rad-equipos {
+  margin-top: 52px;
+}
+
+.rad-equipos > h2 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+.rad-equipos__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.rad-equipo {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  text-align: center;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.rad-equipo:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.rad-equipo__media {
+  aspect-ratio: 4 / 3;
+  background: var(--bg-soft);
+  padding: 16px;
+}
+
+.rad-equipo__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rad-equipo__body {
+  padding: 6px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.rad-equipo__body h3 {
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 6px;
+}
+
+.rad-equipo__body p {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  flex: 1;
+}
+
+.rad-equipo__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--red);
+}
+
+.rad-equipo:hover .rad-equipo__link {
+  gap: 9px;
+}
+
+/* ---- CTA final ---- */
+.rad-cta {
+  margin-top: 52px;
+  background: linear-gradient(90deg, var(--navy), var(--red));
+  border-radius: var(--radius-lg);
+  padding: 26px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: #fff;
+}
+
+.rad-cta h2 {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.rad-cta p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+.rad-cta .btn--whatsapp {
+  flex-shrink: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .rad-hero {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .rad-splits {
+    grid-template-columns: 1fr;
+  }
+  .rad-equipos__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .rad-hero__media {
+    grid-template-columns: 1fr 1fr;
+  }
+  .rad-equipos__grid {
+    grid-template-columns: 1fr;
+  }
+  .rad-split__cta {
+    margin-left: 0;
+    width: 100%;
+  }
+  .rad-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

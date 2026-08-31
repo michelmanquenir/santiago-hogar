@@ -3,18 +3,18 @@ import FloatingActions from './components/FloatingActions'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import TopBar from './components/TopBar'
-import { categoryPages } from './data/categoryPages'
 import { productBySlug } from './data/products'
 import { useHistoryRoute } from './lib/router'
-import CategoryPage from './pages/CategoryPage'
 import HomePage from './pages/HomePage'
 import LimpiezaRedesPage from './pages/LimpiezaRedesPage'
 import ProductoDetallePage from './pages/ProductoDetallePage'
 import ProductosPage from './pages/ProductosPage'
+import RadiadoresPage from './pages/RadiadoresPage'
 import ServicioGasPage from './pages/ServicioGasPage'
 
 function renderRoute(path: string): ReactNode {
   if (path === '/servicio-tecnico-de-gas') return <ServicioGasPage />
+  if (path === '/radiadores-y-calefaccion') return <RadiadoresPage />
   if (path === '/limpieza-de-redes') return <LimpiezaRedesPage />
 
   if (path === '/productos') return <ProductosPage />
@@ -25,9 +25,6 @@ function renderRoute(path: string): ReactNode {
     const product = productBySlug(path.slice('/producto/'.length))
     if (product) return <ProductoDetallePage product={product} />
   }
-
-  const config = categoryPages[path.replace(/^\//, '')]
-  if (config) return <CategoryPage config={config} />
 
   return <HomePage />
 }
