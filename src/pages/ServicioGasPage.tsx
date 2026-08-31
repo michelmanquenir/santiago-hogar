@@ -41,7 +41,7 @@ const equipos: { label: string; image: string }[] = [
   { label: 'Calderas murales', image: '/images/servicios/servicio-tecnico-de-gas/equipos/calderas-murales.jpg' },
   { label: 'Calderas de piso', image: '/images/servicios/servicio-tecnico-de-gas/equipos/calderas-de-piso.jpg' },
   { label: 'Calefont', image: '/images/servicios/servicio-tecnico-de-gas/equipos/calefont.jpg' },
-  { label: 'Radiadores', image: '/images/servicios/servicio-tecnico-de-gas/equipos/hero.jpg' },
+  { label: 'Radiadores', image: '/images/servicios/servicio-tecnico-de-gas/equipos/radiadores.jpg' },
   { label: 'Sistemas de control', image: '/images/servicios/servicio-tecnico-de-gas/equipos/sistemas-de-control.jpg' },
 ]
 

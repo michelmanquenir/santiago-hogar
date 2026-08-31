@@ -96,7 +96,7 @@ export default function RadiadoresPage() {
           </div>
           <div className="rad-hero__media">
             <img
-              src="/images/servicios/radiadores-y-calefaccion/radiadores.jpg"
+              src="/images/servicios/radiadores-y-calefaccion/hero.jpg"
               alt="Técnico de Santiago Hogar instalando un radiador"
             />
             <img
