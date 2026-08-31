@@ -1,10 +1,35 @@
 import { useState } from 'react'
 import { contact, navItems } from '../data'
+import type { NavItem } from '../data'
 import Icon from './Icon'
 import Logo from './Logo'
 import './Navbar.css'
 
-export default function Navbar() {
+/** ¿El ítem del menú corresponde a la ruta actual? */
+function isActive(item: NavItem, path: string): boolean {
+  // Ítems que son anclas de la home (#marcas, /#contacto…) no se marcan.
+  if (!item.href.startsWith('/') || item.href.startsWith('/#')) return false
+
+  if (item.href === '/') return path === '/'
+
+  if (path === item.href || path.startsWith(item.href + '/')) return true
+
+  // "Productos" cubre también la ficha de un producto (/producto/<slug>).
+  if (item.href === '/productos' && path.startsWith('/producto/')) return true
+
+  // "Servicios" cubre cualquiera de sus subrutas.
+  if (
+    item.children?.some(
+      (c) => path === c.href || path.startsWith(c.href + '/'),
+    )
+  ) {
+    return true
+  }
+
+  return false
+}
+
+export default function Navbar({ path }: { path: string }) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -64,7 +89,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      <nav className={`nav__bar ${open ? 'is-open' : ''}`}>
+      <nav
+        className={`nav__bar ${open ? 'is-open' : ''}`}
+        onClick={() => setOpen(false)}
+      >
         <div className="container nav__links">
           {navItems.map((item) => (
             <div
@@ -73,7 +101,8 @@ export default function Navbar() {
             >
               <a
                 href={item.href}
-                className={item.label === 'Inicio' ? 'is-active' : ''}
+                className={isActive(item, path) ? 'is-active' : ''}
+                aria-current={isActive(item, path) ? 'page' : undefined}
               >
                 {item.label}
                 {item.children && <Icon name="chevron-down" size={15} />}
@@ -81,7 +110,11 @@ export default function Navbar() {
               {item.children && (
                 <div className="nav__dropdown">
                   {item.children.map((c) => (
-                    <a key={c.label} href={c.href}>
+                    <a
+                      key={c.label}
+                      href={c.href}
+                      className={path === c.href ? 'is-active' : ''}
+                    >
                       {c.label}
                     </a>
                   ))}

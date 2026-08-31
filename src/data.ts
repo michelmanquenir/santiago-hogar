@@ -1,7 +1,8 @@
 import type { IconName } from './components/Icon'
 
 export const contact = {
-  phone: '(2) 288 812 93',
+  phone: '+56 9 5528 1193',
+  phoneHref: 'tel:+56955281193',
   whatsapp: '+56 9 5528 1193',
   whatsappHref: 'https://wa.me/56955281193',
   email: 'serviciossantiagohogar@gmail.com',

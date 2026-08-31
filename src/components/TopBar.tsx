@@ -7,7 +7,7 @@ export default function TopBar() {
     <div className="topbar">
       <div className="container topbar__inner">
         <div className="topbar__contacts">
-          <a href={`tel:${contact.phone}`}>
+          <a href={contact.phoneHref}>
             <Icon name="phone" size={15} />
             {contact.phone}
           </a>
@@ -17,7 +17,7 @@ export default function TopBar() {
             rel="noopener noreferrer"
           >
             <Icon name="whatsapp" size={15} />
-            {contact.whatsapp}
+            WhatsApp
           </a>
           <a href={`mailto:${contact.email}`}>
             <Icon name="mail" size={15} />

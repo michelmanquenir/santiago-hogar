@@ -208,6 +208,11 @@
   color: var(--navy);
 }
 
+.nav__dropdown a.is-active {
+  color: var(--red);
+  font-weight: 600;
+}
+
 @media (max-width: 1100px) {
   .nav__quote span,
   .nav__wa span {

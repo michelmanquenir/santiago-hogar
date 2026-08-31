@@ -47,7 +47,7 @@ export default function Footer() {
           <ul className="footer__contact">
             <li>
               <Icon name="phone" size={16} />
-              <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+              <a href={contact.phoneHref}>{contact.phone}</a>
             </li>
             <li>
               <Icon name="whatsapp" size={16} />
@@ -56,7 +56,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {contact.whatsapp}
+                Escríbenos por WhatsApp
               </a>
             </li>
             <li>

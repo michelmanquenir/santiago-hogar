@@ -17,7 +17,7 @@ export default function FloatingActions() {
       </a>
       <a
         className="fab__btn fab__btn--call"
-        href={`tel:${contact.phone}`}
+        href={contact.phoneHref}
         aria-label="Llámanos"
       >
         <Icon name="phone" size={20} />

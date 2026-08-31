@@ -38,7 +38,7 @@ export default function App() {
   return (
     <>
       <TopBar />
-      <Navbar />
+      <Navbar path={path} />
       <main>{renderRoute(path)}</main>
       <Footer />
       <FloatingActions />

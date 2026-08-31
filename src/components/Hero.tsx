@@ -43,7 +43,7 @@ export default function Hero() {
               <Icon name="whatsapp" size={18} />
               Hablar por WhatsApp
             </a>
-            <a className="btn" href={`tel:${contact.phone}`}>
+            <a className="btn" href={contact.phoneHref}>
               <Icon name="phone" size={18} />
               Llamar ahora
             </a>

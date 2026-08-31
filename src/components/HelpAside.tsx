@@ -58,7 +58,7 @@ export default function HelpAside({
       <ul className="help-aside__contact">
         <li>
           <Icon name="phone" size={17} />
-          <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+          <a href={contact.phoneHref}>{contact.phone}</a>
         </li>
         <li>
           <Icon name="whatsapp" size={17} />
@@ -67,7 +67,7 @@ export default function HelpAside({
             target="_blank"
             rel="noopener noreferrer"
           >
-            {contact.whatsapp}
+            Escríbenos por WhatsApp
           </a>
         </li>
         <li>
