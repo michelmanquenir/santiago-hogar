@@ -52,9 +52,8 @@ const equipos: Equipo[] = [
   {
     name: 'Válvulas termostáticas',
     description: 'Regulación de temperatura por ambiente.',
-    image:
-      '/images/servicios/radiadores-y-calefaccion/destacados/valvulas-termostaticas.jpg',
-    href: '/productos/termostatos',
+    image: '/images/productos/valvula-termostatica-angular.jpg',
+    href: '/producto/kit-valvula-termostatica-angular-ek',
   },
   {
     name: 'Radiadores',

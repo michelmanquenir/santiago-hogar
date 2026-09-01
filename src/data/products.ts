@@ -234,6 +234,34 @@ export const products: Product[] = [
       { label: 'Retroalimentación', value: 'Contacto auxiliar al abrir por completo' },
     ],
   },
+  {
+    slug: 'kit-valvula-termostatica-angular-ek',
+    name: 'Kit Válvula Termostática Angular 1/2" PEX EK',
+    category: 'Termostatos',
+    brand: 'ANWO',
+    image: '/images/productos/valvula-termostatica-angular.jpg',
+    tagline:
+      'Kit de válvulas angulares con cabezal termostático para regular la temperatura ambiente.',
+    summary: [
+      'Válvulas angulares, doble angulares y rectas con termostato para regulación de temperatura ambiente entre 16 y 24 °C.',
+    ],
+    features: [
+      'Disponible en versión angular, doble angular y recta',
+      'Cabezal termostático para regulación de temperatura ambiente',
+      'Rango de regulación: 16 a 24 °C',
+      'Conexión 1/2" PEX',
+      'Línea EK',
+    ],
+    specs: [
+      {
+        label: 'Tipo',
+        value: 'Kit de válvulas termostáticas (angular / doble angular / recta)',
+      },
+      { label: 'Conexión', value: '1/2" PEX' },
+      { label: 'Regulación', value: 'Termostática, 16 – 24 °C' },
+      { label: 'Línea', value: 'EK' },
+    ],
+  },
 ]
 
 export function productBySlug(slug: string): Product | undefined {
