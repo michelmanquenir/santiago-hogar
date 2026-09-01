@@ -41,7 +41,7 @@ export const products: Product[] = [
     brand: 'ANWO',
     image: '/images/productos/calefont-anwo-hitech-hydro-18.jpg',
     installIncluded: true,
-    tagline: 'Calefón mural de tiro forzado, 18 L/min con pantalla LED multifuncional.',
+    tagline: 'Disponible en múltiples capacidades: 10L / 13L / 16L / 18L / 21L.',
     summary: [
       'Calefón mural de tiro forzado con pantalla LED multifuncional y sistema de control para combustión inteligente.',
       'Función memoria con tres niveles de consigna de temperatura para tres tipos de usuarios y auto-inspección de mal funcionamiento.',
@@ -73,7 +73,7 @@ export const products: Product[] = [
     brand: 'ANWO',
     image: '/images/productos/caldera-anwo-aqua-plus-2-0.jpg',
     installIncluded: true,
-    tagline: 'Caldera mural convencional mixta, tiro forzado / balanceado.',
+    tagline: 'Disponible en múltiples capacidades: 20/22 kW · 30/32 kW.',
     summary: [
       'Caldera mural convencional mixta (calefacción y agua caliente) de tiro forzado / balanceado.',
       'Componentes internos con certificación Europea CE y nueva normativa Chilena. Posee dos intercambiadores de calor en acero inoxidable, contacto auxiliar para bomba de circulación adicional, control proporcional de potencia sin escalamientos y sistema de aceleración de ACS.',
@@ -101,7 +101,8 @@ export const products: Product[] = [
     category: 'Radiadores',
     brand: 'ANWO',
     image: '/images/productos/radiador-simple-anwo-ek.jpg',
-    tagline: 'Radiador simple de acero: una placa y un convector.',
+    tagline:
+      'Disponible en múltiples tamaños: 400x600 · 400x800 · 600x1000 · 600x1200 · 600x1400 · 600x1600 mm.',
     summary: [
       'EK es un radiador simple formado por una placa y un convector.',
       'Fabricado bajo calidad total ISO 9001, con placas convectoras de acero y tratamiento anticorrosivo: decapado, fosfatizado, pintura antióxido por inmersión a 180 °C y pintura epóxica pulverizada a 200 °C. Presión de trabajo de 10 bar. Embalaje especial para máxima protección en bodega, transporte e instalación. Certificación Europea CE (EN 442, RAL, DIN).',
@@ -182,7 +183,7 @@ export const products: Product[] = [
     category: 'Termostatos',
     brand: 'ANWO',
     image: '/images/productos/termostato-programable-anwo-atp-1.png',
-    tagline: 'Termostato con programación semanal y diaria para maximizar el confort.',
+    tagline: 'Programación diaria y semanal. Control preciso y fácil de usar.',
     summary: [
       'Termostato con programación semanal que permite establecer el nivel de confort mediante distintos programas de configuración.',
       'Disminuye el consumo de energía en función de la necesidad de confort diaria y semanal.',
