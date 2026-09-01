@@ -205,6 +205,35 @@ export const products: Product[] = [
       { label: 'Dimensiones', value: '89 × 143 × 36 mm' },
     ],
   },
+  {
+    slug: 'valvula-motorizada-anwo',
+    name: 'Válvula Motorizada ANWO',
+    category: 'Termostatos',
+    brand: 'ANWO',
+    image: '/images/productos/valvula-motorizada.jpg',
+    tagline:
+      'Válvula motorizada para sistemas de agua fría/caliente con climatización central.',
+    summary: [
+      'Estas válvulas son ampliamente utilizadas en sistemas de agua fría/caliente con climatización central.',
+    ],
+    features: [
+      'Protección adecuada contra el agua y el polvo (IP65)',
+      'Reemplazo rápido y fácil del accionador',
+      'Alta presión diferencial de hasta 1 MPa y cierre estricto',
+      'Señal de retroalimentación al abrirse por completo mediante contacto auxiliar',
+    ],
+    specs: [
+      {
+        label: 'Aplicación',
+        value: 'Sistemas de agua fría/caliente con climatización central',
+      },
+      { label: 'Protección', value: 'IP65 (agua y polvo)' },
+      { label: 'Presión diferencial', value: 'Hasta 1 MPa' },
+      { label: 'Cierre', value: 'Estricto' },
+      { label: 'Accionador', value: 'De reemplazo rápido y fácil' },
+      { label: 'Retroalimentación', value: 'Contacto auxiliar al abrir por completo' },
+    ],
+  },
 ]
 
 export function productBySlug(slug: string): Product | undefined {

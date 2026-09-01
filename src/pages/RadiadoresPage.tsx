@@ -46,9 +46,8 @@ const equipos: Equipo[] = [
   {
     name: 'Válvulas motorizadas',
     description: 'Control automático para sistemas de calefacción.',
-    image:
-      '/images/servicios/radiadores-y-calefaccion/destacados/valvulas-motorizadas.jpg',
-    href: '/productos/termostatos',
+    image: '/images/productos/valvula-motorizada.jpg',
+    href: '/producto/valvula-motorizada-anwo',
   },
   {
     name: 'Válvulas termostáticas',
