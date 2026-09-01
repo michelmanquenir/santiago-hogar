@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import type { FormEvent } from 'react'
 import { categories, categoryHref, contact, navItems } from '../data'
 import type { NavItem } from '../data'
 import { productCategories, categorySlug } from '../data/products'
 import Icon from './Icon'
 import Logo from './Logo'
+import SearchBox from './SearchBox'
 import './Navbar.css'
 
 /** ¿El ítem del menú corresponde a la ruta actual? */
@@ -57,14 +57,6 @@ export default function Navbar({ path, query, navigate }: NavbarProps) {
     }
   }, [catsOpen])
 
-  const onSearch = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const value = new FormData(e.currentTarget).get('q')
-    const q = typeof value === 'string' ? value.trim() : ''
-    navigate(q ? `/productos?q=${encodeURIComponent(q)}` : '/productos')
-    setOpen(false)
-  }
-
   return (
     <header className="nav">
       <div className="container nav__top">
@@ -114,19 +106,12 @@ export default function Navbar({ path, query, navigate }: NavbarProps) {
           <Logo />
         </a>
 
-        <form className="nav__search" role="search" onSubmit={onSearch}>
-          <input
-            key={query}
-            name="q"
-            type="search"
-            defaultValue={query}
-            placeholder="Buscar calderas, calefones, radiadores..."
-            aria-label="Buscar productos"
-          />
-          <button type="submit" aria-label="Buscar">
-            <Icon name="search" size={18} />
-          </button>
-        </form>
+        <SearchBox
+          key={query}
+          initialQuery={query}
+          navigate={navigate}
+          onNavigated={() => setOpen(false)}
+        />
 
         <div className="nav__actions">
           <button className="btn btn--red nav__quote" type="button">

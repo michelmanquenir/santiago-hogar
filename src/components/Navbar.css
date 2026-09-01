@@ -124,41 +124,11 @@
   letter-spacing: 1.3px;
 }
 
+/* Contenedor del buscador; los estilos internos están en SearchBox.css */
 .nav__search {
   flex: 1;
-  display: flex;
-  align-items: center;
   min-width: 0;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--bg-soft);
-  overflow: hidden;
-}
-
-.nav__search input {
-  flex: 1;
-  min-width: 0;
-  border: none;
-  background: transparent;
-  padding: 11px 14px;
-  font: inherit;
-  font-size: 0.9rem;
-  color: var(--ink);
-  outline: none;
-}
-
-.nav__search button {
-  border: none;
-  background: transparent;
-  color: var(--muted);
-  padding: 0 14px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-}
-
-.nav__search button:hover {
-  color: var(--navy);
+  position: relative;
 }
 
 .nav__actions {

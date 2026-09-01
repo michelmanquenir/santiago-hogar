@@ -1,0 +1,129 @@
+.searchbox__row {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+
+.searchbox__row:focus-within {
+  border-color: var(--navy);
+}
+
+.searchbox__row input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 11px 14px;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--ink);
+  outline: none;
+}
+
+.searchbox__row > button {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  padding: 0 14px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.searchbox__row > button:hover {
+  color: var(--navy);
+}
+
+/* ---- Panel de sugerencias ---- */
+.searchbox__panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 70;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  max-height: 72vh;
+  overflow-y: auto;
+}
+
+.searchbox__panel ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchbox__panel li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.searchbox__panel li a:hover,
+.searchbox__panel li a.is-active {
+  background: var(--bg-soft);
+}
+
+.searchbox__panel img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  background: var(--bg-soft);
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.searchbox__panel span {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.searchbox__panel strong {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.searchbox__panel small {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.searchbox__all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 4px;
+  padding: 11px 10px;
+  border: none;
+  border-top: 1px solid var(--hairline);
+  background: transparent;
+  color: var(--red);
+  font-weight: 600;
+  font-size: 0.83rem;
+  cursor: pointer;
+}
+
+.searchbox__all:hover {
+  background: var(--bg-soft);
+}
+
+.searchbox__empty {
+  padding: 18px 12px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
