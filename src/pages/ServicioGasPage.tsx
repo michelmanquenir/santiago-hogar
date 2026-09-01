@@ -1,3 +1,4 @@
+import { contact } from '../data'
 import HelpAside from '../components/HelpAside'
 import Icon from '../components/Icon'
 import type { IconName } from '../components/Icon'
@@ -8,6 +9,14 @@ type Service = {
   title: string
   description: string
   icon: IconName
+}
+
+/** Enlace de WhatsApp con el servicio solicitado en el mensaje. */
+function requestServiceHref(service?: string): string {
+  const message = service
+    ? `Hola 👋, quiero solicitar el servicio de *${service}* para mi caldera o calefont.`
+    : 'Hola 👋, quiero solicitar un servicio técnico para mi caldera o calefont.'
+  return `${contact.whatsappHref}?text=${encodeURIComponent(message)}`
 }
 
 const services: Service[] = [
@@ -105,7 +114,12 @@ export default function ServicioGasPage() {
                     </span>
                     <h3>{s.title}</h3>
                     <p>{s.description}</p>
-                    <a className="svc-card__link" href="/#contacto">
+                    <a
+                      className="svc-card__link"
+                      href={requestServiceHref(s.title)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Solicitar servicio <Icon name="arrow-right" size={15} />
                     </a>
                   </article>
@@ -132,7 +146,10 @@ export default function ServicioGasPage() {
             </section>
           </div>
 
-          <HelpAside ctaLabel="Solicitar servicio" />
+          <HelpAside
+            ctaLabel="Solicitar servicio"
+            ctaHref={requestServiceHref()}
+          />
         </div>
       </div>
 
