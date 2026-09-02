@@ -16,6 +16,12 @@ export type ProductSpec = {
   value: string
 }
 
+/** Tabla de especificaciones de varias columnas (ej. modelos / medidas). */
+export type SpecTable = {
+  headers: string[]
+  rows: string[][]
+}
+
 export type Product = {
   slug: string
   name: string
@@ -29,8 +35,10 @@ export type Product = {
   summary: string[]
   /** Lista de características puntuales. */
   features: string[]
-  /** Filas de la tabla de especificaciones. */
+  /** Lista clave/valor de especificaciones. */
   specs: ProductSpec[]
+  /** Tabla de varias columnas (opcional, ej. modelos disponibles). */
+  specTable?: SpecTable
 }
 
 export const products: Product[] = [
@@ -263,6 +271,43 @@ export const products: Product[] = [
       { label: 'Línea', value: 'EK' },
     ],
   },
+  {
+    slug: 'secatoallas-anwo',
+    name: 'Secatoallas ANWO',
+    category: 'Radiadores',
+    brand: 'ANWO',
+    image: '/images/productos/seca-toalla.jpg',
+    tagline:
+      'Toallero calefactor para el baño, en versión blanco y cromo. 6 medidas disponibles.',
+    summary: [
+      'Una solución estética en la calefacción de su baño. Con más distancia entre tubos garantiza un diseño limpio y elegante, en versión blanco y cromo.',
+    ],
+    features: [
+      'Diseño limpio y elegante con mayor distancia entre tubos',
+      'Disponible en terminación blanco y cromo',
+      '6 medidas: de 400 a 750 mm de ancho',
+      'Rendimiento de 221 a 1.100 Kcal/h según modelo',
+      'Presión de ensayo: 8 bar',
+    ],
+    specs: [
+      { label: 'Terminación', value: 'Blanco / cromo' },
+      { label: 'Ancho', value: '400 – 750 mm' },
+      { label: 'Alto', value: '700 – 1.385 mm' },
+      { label: 'Rendimiento', value: '221 – 1.100 Kcal/h' },
+      { label: 'Presión de ensayo', value: '8 bar' },
+    ],
+    specTable: {
+      headers: ['Código', 'Alto (mm)', 'Ancho (mm)', 'Kcal/h', 'Dist. ejes (mm)'],
+      rows: [
+        ['0.400.0700', '700', '400', '221', '350'],
+        ['0.450.0700', '700', '450', '242', '400'],
+        ['0.600.0700', '700', '600', '305', '550'],
+        ['0.600.1160', '1.160', '600', '486', '550'],
+        ['0.600.1385', '1.385', '600', '605', '550'],
+        ['0.750.1195', '1.195', '750', '1.100', '700'],
+      ],
+    },
+  },
 ]
 
 export function productBySlug(slug: string): Product | undefined {
@@ -299,6 +344,7 @@ export function searchProducts(query: string): Product[] {
         ...product.summary,
         ...product.features,
         ...product.specs.map((s) => `${s.label} ${s.value}`),
+        ...(product.specTable?.rows.flat() ?? []),
       ].join(' '),
     )
     return terms.every((term) => haystack.includes(term))

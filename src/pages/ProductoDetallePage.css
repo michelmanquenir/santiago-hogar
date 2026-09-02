@@ -141,6 +141,47 @@
   border-bottom: none;
 }
 
+/* ---- Tabla de varias columnas (modelos) ---- */
+.pd-spectable__wrap {
+  margin-top: 16px;
+}
+
+.pd-spectable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  white-space: nowrap;
+}
+
+.pd-spectable th,
+.pd-spectable td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.pd-spectable thead th {
+  color: var(--body);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.3px;
+  background: var(--bg-soft);
+}
+
+.pd-spectable tbody td {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.pd-spectable tbody td:first-child {
+  font-weight: 600;
+}
+
+.pd-spectable tbody tr:last-child td {
+  border-bottom: none;
+}
+
 /* ---- Related ---- */
 .pd-related {
   display: grid;

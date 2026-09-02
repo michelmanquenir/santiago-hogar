@@ -118,7 +118,7 @@ export default function ProductoDetallePage({ product }: { product: Product }) {
             </section>
           )}
 
-          {product.specs.length > 0 && (
+          {(product.specs.length > 0 || product.specTable) && (
             <section className="pd-section">
               <div className="page-h">
                 <span className="page-h__icon">
@@ -126,18 +126,46 @@ export default function ProductoDetallePage({ product }: { product: Product }) {
                 </span>
                 <h2>Especificaciones</h2>
               </div>
-              <div className="pd-specs__wrap">
-                <table className="pd-specs">
-                  <tbody>
-                    {product.specs.map((s) => (
-                      <tr key={s.label}>
-                        <th scope="row">{s.label}</th>
-                        <td>{s.value}</td>
+
+              {product.specs.length > 0 && (
+                <div className="pd-specs__wrap">
+                  <table className="pd-specs">
+                    <tbody>
+                      {product.specs.map((s) => (
+                        <tr key={s.label}>
+                          <th scope="row">{s.label}</th>
+                          <td>{s.value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              {product.specTable && (
+                <div className="pd-specs__wrap pd-spectable__wrap">
+                  <table className="pd-spectable">
+                    <thead>
+                      <tr>
+                        {product.specTable.headers.map((h) => (
+                          <th key={h} scope="col">
+                            {h}
+                          </th>
+                        ))}
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+                    <tbody>
+                      {product.specTable.rows.map((row) => (
+                        <tr key={row[0]}>
+                          {row.map((cell, i) => (
+                            <td key={i}>{cell}</td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </section>
           )}
 

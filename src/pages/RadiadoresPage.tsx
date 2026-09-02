@@ -65,9 +65,8 @@ const equipos: Equipo[] = [
   {
     name: 'Toalleros',
     description: 'Calefacción y secado eficiente para el baño.',
-    image:
-      '/images/servicios/radiadores-y-calefaccion/destacados/secatoallas.jpg',
-    href: '/productos/radiadores',
+    image: '/images/productos/seca-toalla.jpg',
+    href: '/producto/secatoallas-anwo',
   },
 ]
 
