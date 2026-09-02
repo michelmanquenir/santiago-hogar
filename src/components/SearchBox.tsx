@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { KeyboardEvent } from 'react'
-import { searchProducts } from '../data/products'
+import { search } from '../lib/search'
 import Icon from './Icon'
 import './SearchBox.css'
 
-const MAX_SUGGESTIONS = 6
+const MAX_SUGGESTIONS = 8
 
 type SearchBoxProps = {
   initialQuery: string
@@ -24,7 +24,7 @@ export default function SearchBox({
 
   const q = value.trim()
   const results = useMemo(
-    () => (q.length >= 2 ? searchProducts(q).slice(0, MAX_SUGGESTIONS) : []),
+    () => search(q).slice(0, MAX_SUGGESTIONS),
     [q],
   )
   const showPanel = open && q.length >= 2
@@ -49,8 +49,8 @@ export default function SearchBox({
     close()
   }
 
-  const goToProduct = (slug: string) => {
-    navigate(`/producto/${slug}`)
+  const goTo = (href: string) => {
+    navigate(href)
     close()
   }
 
@@ -68,7 +68,7 @@ export default function SearchBox({
       setActive((i) => (i <= 0 ? results.length - 1 : i - 1))
     } else if (e.key === 'Enter' && active >= 0) {
       e.preventDefault()
-      goToProduct(results[active].slug)
+      goTo(results[active].href)
     }
   }
 
@@ -85,8 +85,8 @@ export default function SearchBox({
         <input
           type="search"
           value={value}
-          placeholder="Buscar calderas, calefones, radiadores..."
-          aria-label="Buscar productos"
+          placeholder="Buscar productos o servicios..."
+          aria-label="Buscar productos y servicios"
           autoComplete="off"
           onChange={(e) => {
             setValue(e.target.value)
@@ -106,18 +106,24 @@ export default function SearchBox({
           {results.length > 0 ? (
             <>
               <ul>
-                {results.map((p, i) => (
-                  <li key={p.slug}>
+                {results.map((r, i) => (
+                  <li key={r.href}>
                     <a
-                      href={`/producto/${p.slug}`}
+                      href={r.href}
                       className={i === active ? 'is-active' : ''}
                       onMouseEnter={() => setActive(i)}
                       onClick={close}
                     >
-                      <img src={p.image} alt="" loading="lazy" />
-                      <span>
-                        <strong>{p.name}</strong>
-                        <small>{p.category}</small>
+                      {r.image ? (
+                        <img src={r.image} alt="" loading="lazy" />
+                      ) : (
+                        <span className="searchbox__icon">
+                          {r.icon && <Icon name={r.icon} size={20} />}
+                        </span>
+                      )}
+                      <span className="searchbox__text">
+                        <strong>{r.title}</strong>
+                        <small>{r.subtitle}</small>
                       </span>
                     </a>
                   </li>

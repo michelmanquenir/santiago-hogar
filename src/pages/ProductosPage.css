@@ -45,6 +45,66 @@
   text-decoration: underline;
 }
 
+/* ---- Servicios que coinciden con la búsqueda ---- */
+.prods__services {
+  margin: 8px 0 32px;
+}
+
+.prods__services > h2 {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+
+.prods__services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.prods__service {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.prods__service:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.prods__service-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(225, 16, 32, 0.09);
+  color: var(--red);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.prods__service-name {
+  flex: 1;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.prods__service > svg:last-child {
+  color: var(--red);
+  flex-shrink: 0;
+}
+
 .prods__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

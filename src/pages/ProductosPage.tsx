@@ -6,6 +6,7 @@ import {
   products,
   searchProducts,
 } from '../data/products'
+import { search } from '../lib/search'
 import './page-shared.css'
 import './ProductosPage.css'
 
@@ -27,6 +28,13 @@ export default function ProductosPage({
   const visible = activeCategory
     ? base.filter((p) => p.category === activeCategory)
     : base
+
+  const matchedServices = term
+    ? search(term).filter((r) => r.kind === 'servicio')
+    : []
+
+  const plural = (n: number, one: string, many: string) =>
+    n === 1 ? one : many
 
   return (
     <div className="prods">
@@ -58,11 +66,15 @@ export default function ProductosPage({
           <p className="page-intro">
             {term ? (
               <>
-                {visible.length}{' '}
-                {visible.length === 1
-                  ? 'producto encontrado'
-                  : 'productos encontrados'}{' '}
-                para <strong>«{term}»</strong>.{' '}
+                Para <strong>«{term}»</strong>: {visible.length}{' '}
+                {plural(visible.length, 'producto', 'productos')}
+                {matchedServices.length > 0 &&
+                  ` y ${matchedServices.length} ${plural(
+                    matchedServices.length,
+                    'servicio',
+                    'servicios',
+                  )}`}
+                .{' '}
                 <a href="/productos" className="prods__clear">
                   Limpiar búsqueda
                 </a>
@@ -103,17 +115,36 @@ export default function ProductosPage({
           </div>
         )}
 
-        {visible.length > 0 ? (
+        {matchedServices.length > 0 && (
+          <section className="prods__services">
+            <h2>Servicios</h2>
+            <div className="prods__services-grid">
+              {matchedServices.map((s) => (
+                <a key={s.href} href={s.href} className="prods__service">
+                  <span className="prods__service-icon">
+                    {s.icon && <Icon name={s.icon} size={22} />}
+                  </span>
+                  <span className="prods__service-name">{s.title}</span>
+                  <Icon name="arrow-right" size={16} />
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {visible.length > 0 && (
           <div className="prods__grid">
             {visible.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}
           </div>
-        ) : (
+        )}
+
+        {visible.length === 0 && matchedServices.length === 0 && (
           <div className="prods__empty">
             <Icon name="search" size={28} />
             <p>
-              No encontramos productos para <strong>«{term}»</strong>.
+              No encontramos resultados para <strong>«{term}»</strong>.
             </p>
             <a className="btn btn--ghost" href="/productos">
               Ver todo el catálogo
