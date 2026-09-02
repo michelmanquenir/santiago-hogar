@@ -101,10 +101,14 @@ export default function LimpiezaRedesPage() {
                 el consumo de energía.
               </p>
             </div>
-            <div className="page-head__img">
+            <div className="page-head__img page-head__img--pair">
               <img
                 src="/images/servicios/limpieza-de-redes/hero.jpg"
                 alt="Equipo de limpieza de redes de calefacción conectado a la instalación"
+              />
+              <img
+                src="/images/servicios/limpieza-de-redes/proceso.jpg"
+                alt="Proceso de limpieza y purga de la red de calefacción"
               />
             </div>
           </div>

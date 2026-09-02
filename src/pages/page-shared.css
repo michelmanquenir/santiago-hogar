@@ -37,6 +37,17 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* Dos imágenes lado a lado (como en Radiadores y Calefacción) */
+.page-head__img--pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.page-head__img--pair img {
+  aspect-ratio: 1 / 1;
+}
+
 .page-intro {
   margin-top: 18px;
   max-width: 60ch;
@@ -46,6 +57,15 @@
   .page-head.has-img {
     grid-template-columns: 1fr;
     gap: 22px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-head__img--pair {
+    grid-template-columns: 1fr;
+  }
+  .page-head__img--pair img {
+    aspect-ratio: 16 / 10;
   }
 }
 
