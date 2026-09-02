@@ -1,15 +1,15 @@
 import type { IconName } from './components/Icon'
 
 export const contact = {
-  phone: '+56 9 5528 1193',
-  phoneHref: 'tel:+56955281193',
-  whatsapp: '+56 9 5528 1193',
-  whatsappHref: 'https://wa.me/56955281193',
+  phone: '+56 9 8898 8881',
+  phoneHref: 'tel:+56988988881',
+  whatsapp: '+56 9 8898 8881',
+  whatsappHref: 'https://wa.me/56988988881',
   email: 'serviciossantiagohogar@gmail.com',
   address: 'Santiago, Región Metropolitana',
   /** Número dedicado a consultas de productos / disponibilidad. */
-  productsWhatsapp: '+56 9 5528 1193',
-  productsWhatsappHref: 'https://wa.me/56955281193',
+  productsWhatsapp: '+56 9 8898 8881',
+  productsWhatsappHref: 'https://wa.me/56988988881',
 }
 
 export type NavChild = {
