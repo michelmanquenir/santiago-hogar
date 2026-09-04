@@ -7,7 +7,11 @@ export default function TopBar() {
     <div className="topbar">
       <div className="container topbar__inner">
         <div className="topbar__contacts">
-          <a href={contact.phoneHref}>
+          <a
+            href={contact.phoneHref}
+            data-ga-event="contacto_llamada"
+            data-ga-label="topbar"
+          >
             <Icon name="phone" size={15} />
             {contact.phone}
           </a>
@@ -15,11 +19,17 @@ export default function TopBar() {
             href={contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
+            data-ga-event="contacto_whatsapp"
+            data-ga-label="topbar"
           >
             <Icon name="whatsapp" size={15} />
             WhatsApp
           </a>
-          <a href={`mailto:${contact.email}`}>
+          <a
+            href={`mailto:${contact.email}`}
+            data-ga-event="contacto_email"
+            data-ga-label="topbar"
+          >
             <Icon name="mail" size={15} />
             {contact.email}
           </a>

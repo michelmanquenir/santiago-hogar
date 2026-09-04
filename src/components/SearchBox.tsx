@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import { search } from '../lib/search'
+import { trackEvent } from '../lib/analytics'
 import Icon from './Icon'
 import './SearchBox.css'
 
@@ -45,12 +46,14 @@ export default function SearchBox({
   }
 
   const goToResults = () => {
+    if (q) trackEvent('busqueda', q)
     navigate(q ? `/productos?q=${encodeURIComponent(q)}` : '/productos')
     close()
   }
 
-  const goTo = (href: string) => {
-    navigate(href)
+  const goTo = (result: { href: string; title: string }) => {
+    trackEvent('busqueda_sugerencia', result.title)
+    navigate(result.href)
     close()
   }
 
@@ -68,7 +71,7 @@ export default function SearchBox({
       setActive((i) => (i <= 0 ? results.length - 1 : i - 1))
     } else if (e.key === 'Enter' && active >= 0) {
       e.preventDefault()
-      goTo(results[active].href)
+      goTo(results[active])
     }
   }
 
@@ -112,7 +115,10 @@ export default function SearchBox({
                       href={r.href}
                       className={i === active ? 'is-active' : ''}
                       onMouseEnter={() => setActive(i)}
-                      onClick={close}
+                      onClick={() => {
+                        trackEvent('busqueda_sugerencia', r.title)
+                        close()
+                      }}
                     >
                       {r.image ? (
                         <img src={r.image} alt="" loading="lazy" />

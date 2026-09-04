@@ -119,6 +119,8 @@ export default function ServicioGasPage() {
                       href={requestServiceHref(s.title)}
                       target="_blank"
                       rel="noopener noreferrer"
+                      data-ga-event="contacto_whatsapp"
+                      data-ga-label={`servicio:${s.title}`}
                     >
                       Solicitar servicio <Icon name="arrow-right" size={15} />
                     </a>
@@ -149,6 +151,7 @@ export default function ServicioGasPage() {
           <HelpAside
             ctaLabel="Solicitar servicio"
             ctaHref={requestServiceHref()}
+            context="servicio-gas"
           />
         </div>
       </div>

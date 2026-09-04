@@ -74,6 +74,8 @@ export default function ProductoDetallePage({ product }: { product: Product }) {
                   href={waHref}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-ga-event="contacto_whatsapp"
+                  data-ga-label={`producto:${product.slug}`}
                 >
                   <Icon name="whatsapp" size={18} />
                   Consultar por WhatsApp
@@ -186,7 +188,11 @@ export default function ProductoDetallePage({ product }: { product: Product }) {
           )}
         </div>
 
-        <HelpAside ctaLabel="Consultar disponibilidad" ctaHref={waHref} />
+        <HelpAside
+          ctaLabel="Consultar disponibilidad"
+          ctaHref={waHref}
+          context={`producto:${product.slug}`}
+        />
       </div>
     </div>
   )

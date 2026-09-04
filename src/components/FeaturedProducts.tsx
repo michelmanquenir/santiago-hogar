@@ -52,7 +52,13 @@ export default function FeaturedProducts() {
 
         <div className="products__grid">
           {cards.map((c) => (
-            <a key={c.name} className="product-card" href={c.href}>
+            <a
+              key={c.name}
+              className="product-card"
+              href={c.href}
+              data-ga-event="destacado_click"
+              data-ga-label={c.name}
+            >
               <div className="product-card__media">
                 <img src={c.image} alt={c.name} loading="lazy" />
               </div>

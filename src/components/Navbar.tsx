@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { categories, categoryHref, contact, navItems } from '../data'
+import { categories, categoryHref, contact, navItems, quoteWhatsappHref } from '../data'
 import type { NavItem } from '../data'
 import { productCategories, categorySlug } from '../data/products'
 import Icon from './Icon'
@@ -67,6 +67,7 @@ export default function Navbar({ path, query, navigate }: NavbarProps) {
             aria-haspopup="true"
             aria-expanded={catsOpen}
             onClick={() => setCatsOpen((v) => !v)}
+            data-ga-event="menu_categorias_click"
           >
             <Icon name="menu" size={18} />
             Categorías
@@ -114,15 +115,24 @@ export default function Navbar({ path, query, navigate }: NavbarProps) {
         />
 
         <div className="nav__actions">
-          <button className="btn btn--red nav__quote" type="button">
+          <a
+            className="btn btn--red nav__quote"
+            href={quoteWhatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-ga-event="contacto_cotizar"
+            data-ga-label="navbar"
+          >
             <Icon name="mail" size={16} />
             Cotizar ahora
-          </button>
+          </a>
           <a
             className="btn btn--whatsapp nav__wa"
             href={contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
+            data-ga-event="contacto_whatsapp"
+            data-ga-label="navbar"
           >
             <Icon name="whatsapp" size={16} />
             WhatsApp

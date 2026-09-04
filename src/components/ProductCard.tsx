@@ -4,7 +4,12 @@ import './ProductCard.css'
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <a className="pcard" href={`/producto/${product.slug}`}>
+    <a
+      className="pcard"
+      href={`/producto/${product.slug}`}
+      data-ga-event="producto_click"
+      data-ga-label={product.slug}
+    >
       <div className="pcard__media">
         <img src={product.image} alt={product.name} loading="lazy" />
         <span className="pcard__cat">{product.category}</span>

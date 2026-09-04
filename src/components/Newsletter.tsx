@@ -1,3 +1,4 @@
+import { trackEvent } from '../lib/analytics'
 import Icon from './Icon'
 import './Newsletter.css'
 
@@ -16,7 +17,10 @@ export default function Newsletter() {
         </div>
         <form
           className="newsletter__form"
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={(e) => {
+            e.preventDefault()
+            trackEvent('newsletter_submit')
+          }}
         >
           <input
             type="email"

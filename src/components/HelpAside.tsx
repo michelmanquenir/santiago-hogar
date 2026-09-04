@@ -15,6 +15,8 @@ type HelpAsideProps = {
   showLogo?: boolean
   ctaLabel?: string
   ctaHref?: string
+  /** Identifica la página/contexto en las métricas (ej. "servicio-gas"). */
+  context?: string
 }
 
 export default function HelpAside({
@@ -22,6 +24,7 @@ export default function HelpAside({
   showLogo = false,
   ctaLabel = 'Solicitar servicio',
   ctaHref = contact.whatsappHref,
+  context = 'sidebar',
 }: HelpAsideProps) {
   const hasBenefits = !!benefits && benefits.length > 0
 
@@ -58,7 +61,13 @@ export default function HelpAside({
       <ul className="help-aside__contact">
         <li>
           <Icon name="phone" size={17} />
-          <a href={contact.phoneHref}>{contact.phone}</a>
+          <a
+            href={contact.phoneHref}
+            data-ga-event="contacto_llamada"
+            data-ga-label={context}
+          >
+            {contact.phone}
+          </a>
         </li>
         <li>
           <Icon name="whatsapp" size={17} />
@@ -66,13 +75,21 @@ export default function HelpAside({
             href={contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
+            data-ga-event="contacto_whatsapp"
+            data-ga-label={context}
           >
             Escríbenos por WhatsApp
           </a>
         </li>
         <li>
           <Icon name="mail" size={17} />
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          <a
+            href={`mailto:${contact.email}`}
+            data-ga-event="contacto_email"
+            data-ga-label={context}
+          >
+            {contact.email}
+          </a>
         </li>
         <li>
           <Icon name="clock" size={17} />
@@ -85,6 +102,8 @@ export default function HelpAside({
         href={ctaHref}
         target="_blank"
         rel="noopener noreferrer"
+        data-ga-event="contacto_whatsapp"
+        data-ga-label={`${context}_cta`}
       >
         {ctaLabel}
       </a>

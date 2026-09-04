@@ -171,7 +171,11 @@ export default function LimpiezaRedesPage() {
           </div>
         </div>
 
-        <HelpAside benefits={asideBenefits} ctaLabel="Solicitar servicio" />
+        <HelpAside
+          benefits={asideBenefits}
+          ctaLabel="Solicitar servicio"
+          context="limpieza-redes"
+        />
       </div>
     </div>
   )

@@ -15,7 +15,13 @@ export default function Footer() {
           </p>
           <div className="footer__social">
             {socials.map((s) => (
-              <a key={s.label} href={s.href} aria-label={s.label}>
+              <a
+                key={s.label}
+                href={s.href}
+                aria-label={s.label}
+                data-ga-event="red_social_click"
+                data-ga-label={s.label}
+              >
                 <Icon name={s.icon} size={16} />
               </a>
             ))}
@@ -24,6 +30,8 @@ export default function Footer() {
               aria-label="WhatsApp"
               target="_blank"
               rel="noopener noreferrer"
+              data-ga-event="contacto_whatsapp"
+              data-ga-label="footer_social"
             >
               <Icon name="whatsapp" size={16} />
             </a>
@@ -36,7 +44,13 @@ export default function Footer() {
             <ul>
               {links.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href}>{l.label}</a>
+                  <a
+                    href={l.href}
+                    data-ga-event="footer_link_click"
+                    data-ga-label={l.label}
+                  >
+                    {l.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -48,7 +62,13 @@ export default function Footer() {
           <ul className="footer__contact">
             <li>
               <Icon name="phone" size={16} />
-              <a href={contact.phoneHref}>{contact.phone}</a>
+              <a
+                href={contact.phoneHref}
+                data-ga-event="contacto_llamada"
+                data-ga-label="footer"
+              >
+                {contact.phone}
+              </a>
             </li>
             <li>
               <Icon name="whatsapp" size={16} />
@@ -56,13 +76,21 @@ export default function Footer() {
                 href={contact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-ga-event="contacto_whatsapp"
+                data-ga-label="footer"
               >
                 Escríbenos por WhatsApp
               </a>
             </li>
             <li>
               <Icon name="mail" size={16} />
-              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              <a
+                href={`mailto:${contact.email}`}
+                data-ga-event="contacto_email"
+                data-ga-label="footer"
+              >
+                {contact.email}
+              </a>
             </li>
             <li>
               <Icon name="map-pin" size={16} />

@@ -39,21 +39,38 @@ export default function Hero() {
               href={contact.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
+              data-ga-event="contacto_whatsapp"
+              data-ga-label="hero"
             >
               <Icon name="whatsapp" size={18} />
               Hablar por WhatsApp
             </a>
-            <a className="btn" href={contact.phoneHref}>
+            <a
+              className="btn"
+              href={contact.phoneHref}
+              data-ga-event="contacto_llamada"
+              data-ga-label="hero"
+            >
               <Icon name="phone" size={18} />
               Llamar ahora
             </a>
           </div>
           <div className="hero__cta">
-            <a className="btn btn--ghost" href="/productos">
+            <a
+              className="btn btn--ghost"
+              href="/productos"
+              data-ga-event="modulo_click"
+              data-ga-label="hero:ver_productos"
+            >
               <Icon name="cart" size={18} />
               Ver productos
             </a>
-            <a className="btn btn--ghost" href="/servicio-tecnico-de-gas">
+            <a
+              className="btn btn--ghost"
+              href="/servicio-tecnico-de-gas"
+              data-ga-event="modulo_click"
+              data-ga-label="hero:solicitar_servicio"
+            >
               <Icon name="wrench" size={18} />
               Solicitar servicio
             </a>

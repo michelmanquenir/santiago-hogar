@@ -135,6 +135,8 @@ export default function RadiadoresPage() {
                       s.accent === 'red' ? 'btn--red' : ''
                     }`}
                     href={s.href}
+                    data-ga-event="modulo_click"
+                    data-ga-label={`radiadores:${s.title}`}
                   >
                     {s.cta}
                     <Icon name="arrow-right" size={16} />
@@ -147,7 +149,13 @@ export default function RadiadoresPage() {
               <h2>Equipos que atendemos</h2>
               <div className="rad-equipos__grid">
                 {equipos.map((e) => (
-                  <a key={e.name} className="rad-equipo" href={e.href}>
+                  <a
+                    key={e.name}
+                    className="rad-equipo"
+                    href={e.href}
+                    data-ga-event="modulo_click"
+                    data-ga-label={`equipo:${e.name}`}
+                  >
                     <div className="rad-equipo__media">
                       <img src={e.image} alt={e.name} loading="lazy" />
                     </div>
@@ -164,7 +172,7 @@ export default function RadiadoresPage() {
             </section>
           </div>
 
-          <HelpAside ctaLabel="Solicitar servicio" />
+          <HelpAside ctaLabel="Solicitar servicio" context="radiadores" />
         </div>
       </div>
     </div>

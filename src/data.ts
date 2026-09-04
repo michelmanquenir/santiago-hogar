@@ -12,6 +12,11 @@ export const contact = {
   productsWhatsappHref: 'https://wa.me/56988988881',
 }
 
+/** WhatsApp con mensaje prellenado para los botones "Cotizar". */
+export const quoteWhatsappHref = `${contact.whatsappHref}?text=${encodeURIComponent(
+  'Hola 👋, quiero solicitar una cotización.',
+)}`
+
 export type NavChild = {
   label: string
   href: string

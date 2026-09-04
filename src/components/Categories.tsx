@@ -12,7 +12,13 @@ export default function Categories() {
 
         <div className="categories__grid">
           {categories.map((cat) => (
-            <a key={cat.name} href={categoryHref(cat.name)} className="cat-card">
+            <a
+              key={cat.name}
+              href={categoryHref(cat.name)}
+              className="cat-card"
+              data-ga-event="categoria_click"
+              data-ga-label={cat.name}
+            >
               <div className="cat-card__media">
                 <img src={cat.image} alt={cat.name} loading="lazy" />
                 <span className="cat-card__icon">
