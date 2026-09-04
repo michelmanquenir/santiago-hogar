@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Al agregar un producto o página nueva, añade su <url> aquí.
+  Dominio canónico: https://www.santiagohogar.cl
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.santiagohogar.cl/</loc><priority>1.0</priority></url>
+
+  <url><loc>https://www.santiagohogar.cl/productos</loc><priority>0.9</priority></url>
+  <url><loc>https://www.santiagohogar.cl/productos/calefont</loc><priority>0.7</priority></url>
+  <url><loc>https://www.santiagohogar.cl/productos/calderas</loc><priority>0.7</priority></url>
+  <url><loc>https://www.santiagohogar.cl/productos/radiadores</loc><priority>0.7</priority></url>
+  <url><loc>https://www.santiagohogar.cl/productos/termostatos</loc><priority>0.7</priority></url>
+
+  <url><loc>https://www.santiagohogar.cl/servicio-tecnico-de-gas</loc><priority>0.8</priority></url>
+  <url><loc>https://www.santiagohogar.cl/radiadores-y-calefaccion</loc><priority>0.8</priority></url>
+  <url><loc>https://www.santiagohogar.cl/limpieza-de-redes</loc><priority>0.8</priority></url>
+
+  <url><loc>https://www.santiagohogar.cl/producto/calefont-anwo-hitech-hydro-18</loc><priority>0.6</priority></url>
+  <url><loc>https://www.santiagohogar.cl/producto/caldera-anwo-aqua-plus-2-0</loc><priority>0.6</priority></url>
+  <url><loc>https://www.santiagohogar.cl/producto/radiador-simple-anwo-ek</loc><priority>0.6</priority></url>
+  <url><loc>https://www.santiagohogar.cl/producto/radiador-doble-anwo-dk</loc><priority>0.6</priority></url>
+  <url><loc>https://www.santiagohogar.cl/producto/termostato-simple-anwo-ats-touch</loc><priority>0.6</priority></url>
+  <url><loc>https://www.santiagohogar.cl/producto/termostato-programable-anwo-atp-1</loc><priority>0.6</priority></url>
+  <url><loc>https://www.santiagohogar.cl/producto/valvula-motorizada-anwo</loc><priority>0.6</priority></url>
+  <url><loc>https://www.santiagohogar.cl/producto/kit-valvula-termostatica-angular-ek</loc><priority>0.6</priority></url>
+  <url><loc>https://www.santiagohogar.cl/producto/secatoallas-anwo</loc><priority>0.6</priority></url>
+</urlset>
