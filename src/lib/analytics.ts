@@ -40,6 +40,19 @@ export function initAnalytics(): void {
   window.gtag = function gtag(...args: unknown[]) {
     window.dataLayer.push(args)
   }
+
+  // El sitio no tiene banner de cookies propio, así que se concede el
+  // consentimiento por defecto — sin esto, Google Tag (al tener Google Ads
+  // vinculado) deja todos los hits "aplazados" indefinidamente. Si más
+  // adelante agregan un banner de cookies, cambiar a 'denied' aquí y llamar
+  // gtag('consent', 'update', { ...: 'granted' }) cuando el usuario acepte.
+  window.gtag('consent', 'default', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted',
+  })
+
   window.gtag('js', new Date())
   // Los pageviews de la SPA se envían a mano en cada cambio de ruta (App.tsx).
   window.gtag('config', GA_MEASUREMENT_ID, { send_page_view: false })
