@@ -12,7 +12,7 @@
  * ID de medición: flujo "santiagohogar" (Administrador → Flujos de datos).
  * Solo se carga en producción (el sitio publicado), nunca en `npm run dev`.
  */
-const GA_MEASUREMENT_ID: string = 'G-ZBTRVTB215'
+const GA_MEASUREMENT_ID: string = 'G-E5WF7EY1B0'
 
 declare global {
   interface Window {
