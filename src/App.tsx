@@ -5,7 +5,7 @@ import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import TopBar from './components/TopBar'
 import { productBySlug } from './data/products'
-import { initAnalytics, trackPageview } from './lib/analytics'
+import { trackPageview } from './lib/analytics'
 import { useHistoryRoute } from './lib/router'
 import HomePage from './pages/HomePage'
 import LimpiezaRedesPage from './pages/LimpiezaRedesPage'
@@ -45,10 +45,6 @@ export default function App() {
     qIndex === -1
       ? ''
       : (new URLSearchParams(route.slice(qIndex)).get('q') ?? '')
-
-  useEffect(() => {
-    initAnalytics()
-  }, [])
 
   useEffect(() => {
     trackPageview(path)
