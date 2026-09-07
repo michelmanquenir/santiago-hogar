@@ -1,61 +1,34 @@
 /**
- * Google Analytics 4 (gtag.js), sin dependencias.
+ * Google Tag Manager (contenedor GTM-5TDZV4LL, cargado desde `index.html`).
  *
- * - `initAnalytics()` carga el script y arma el seguimiento de clics por
- *   atributo: cualquier elemento con `data-ga-event="algo"` (y opcionalmente
- *   `data-ga-label="detalle"`) envía un evento automáticamente al hacer clic.
- * - `trackPageview(path)` envía un pageview manual — la app es una SPA de un
- *   solo `index.html`, así que GA no detecta los cambios de ruta solo.
+ * Este módulo solo empuja eventos a `window.dataLayer`; los tags que hacen
+ * algo con esos eventos (GA4, Google Ads, etc.) se configuran dentro de GTM.
+ *
+ * - `initAnalytics()` arma el seguimiento de clics por atributo: cualquier
+ *   elemento con `data-ga-event="algo"` (y opcional `data-ga-label="detalle"`)
+ *   empuja un evento al hacer clic.
+ * - `trackPageview(path)` empuja una vista de página en cada cambio de ruta —
+ *   la app es una SPA y GTM no detecta los cambios de ruta solo.
  * - `trackEvent(action, label)` para los casos con lógica propia (buscador,
- *   newsletter) donde un atributo estático no alcanza.
- *
- * ID de medición: flujo "santiagohogar" (Administrador → Flujos de datos).
- * Solo se carga en producción (el sitio publicado), nunca en `npm run dev`.
+ *   newsletter).
  */
-const GA_MEASUREMENT_ID: string = 'G-E5WF7EY1B0'
 
 declare global {
   interface Window {
     dataLayer: unknown[]
-    gtag: (...args: unknown[]) => void
   }
 }
 
 let initialized = false
 
-function isConfigured(): boolean {
-  return GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX' && /^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID)
+function pushEvent(payload: Record<string, unknown>): void {
+  window.dataLayer = window.dataLayer || []
+  window.dataLayer.push(payload)
 }
 
 export function initAnalytics(): void {
-  if (initialized || !import.meta.env.PROD || !isConfigured()) return
+  if (initialized) return
   initialized = true
-
-  const script = document.createElement('script')
-  script.async = true
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`
-  document.head.appendChild(script)
-
-  window.dataLayer = window.dataLayer || []
-  window.gtag = function gtag(...args: unknown[]) {
-    window.dataLayer.push(args)
-  }
-
-  // El sitio no tiene banner de cookies propio, así que se concede el
-  // consentimiento por defecto — sin esto, Google Tag (al tener Google Ads
-  // vinculado) deja todos los hits "aplazados" indefinidamente. Si más
-  // adelante agregan un banner de cookies, cambiar a 'denied' aquí y llamar
-  // gtag('consent', 'update', { ...: 'granted' }) cuando el usuario acepte.
-  window.gtag('consent', 'default', {
-    ad_storage: 'granted',
-    ad_user_data: 'granted',
-    ad_personalization: 'granted',
-    analytics_storage: 'granted',
-  })
-
-  window.gtag('js', new Date())
-  // Los pageviews de la SPA se envían a mano en cada cambio de ruta (App.tsx).
-  window.gtag('config', GA_MEASUREMENT_ID, { send_page_view: false })
 
   // Seguimiento de clics por atributo: data-ga-event="..." [data-ga-label="..."].
   document.addEventListener('click', (event) => {
@@ -67,18 +40,17 @@ export function initAnalytics(): void {
   })
 }
 
-/** Envía un pageview manual. */
+/** Empuja una vista de página al dataLayer (SPA: una por cada cambio de ruta). */
 export function trackPageview(path: string): void {
-  if (!window.gtag) return
-  window.gtag('event', 'page_view', {
+  pushEvent({
+    event: 'spa_pageview',
     page_path: path,
     page_location: window.location.href,
     page_title: document.title,
   })
 }
 
-/** Envía un evento personalizado a GA4. */
+/** Empuja un evento personalizado al dataLayer. */
 export function trackEvent(action: string, label?: string): void {
-  if (!window.gtag) return
-  window.gtag('event', action, label ? { event_label: label } : undefined)
+  pushEvent(label ? { event: action, event_label: label } : { event: action })
 }
