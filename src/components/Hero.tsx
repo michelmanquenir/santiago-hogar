@@ -2,36 +2,35 @@ import { contact } from '../data'
 import Icon from './Icon'
 import './Hero.css'
 
-const bullets = [
-  'Instalación',
-  'Mantención',
-  'Reparación',
-  'Limpieza de redes',
-  'Venta de artefactos',
-]
+const bullets = ['Instalación', 'Mantención', 'Reparación']
 
 export default function Hero() {
   return (
     <section className="hero" id="inicio">
+      <div className="hero__media">
+        <img
+          src="/images/inicio/calderas-Rinnai-Anwo.png"
+          alt="Calderas Rinnai y Anwo"
+          loading="eager"
+          width={1672}
+          height={941}
+        />
+      </div>
+
       <div className="container hero__inner">
         <div className="hero__content">
           <h1>
-            Especialistas en <span>Calefacción</span>
+            Servicio técnico de{' '}
+            <span>Calderas Rinnai, Anwo y principales marcas</span>
           </h1>
+
+          <hr className="hero__rule" />
 
           <ul className="hero__bullets">
             {bullets.map((b) => (
-              <li key={b}>
-                <span className="dot" />
-                {b}
-              </li>
+              <li key={b}>{b}</li>
             ))}
           </ul>
-
-          <p className="hero__lead">
-            Más de 20 años entregando soluciones con calidad, confianza y
-            compromiso.
-          </p>
 
           <div className="hero__cta">
             <a
@@ -42,64 +41,18 @@ export default function Hero() {
               data-ga-event="contacto_whatsapp"
               data-ga-label="hero"
             >
-              <Icon name="whatsapp" size={18} />
+              <Icon name="whatsapp" size={26} />
               Hablar por WhatsApp
             </a>
             <a
-              className="btn"
+              className="btn hero__call"
               href={contact.phoneHref}
               data-ga-event="contacto_llamada"
               data-ga-label="hero"
             >
-              <Icon name="phone" size={18} />
+              <Icon name="phone" size={24} />
               Llamar ahora
             </a>
-          </div>
-          <div className="hero__cta">
-            <a
-              className="btn btn--ghost"
-              href="/productos"
-              data-ga-event="modulo_click"
-              data-ga-label="hero:ver_productos"
-            >
-              <Icon name="cart" size={18} />
-              Ver productos
-            </a>
-            <a
-              className="btn btn--ghost"
-              href="/servicio-tecnico-de-gas"
-              data-ga-event="modulo_click"
-              data-ga-label="hero:solicitar_servicio"
-            >
-              <Icon name="wrench" size={18} />
-              Solicitar servicio
-            </a>
-          </div>
-
-          <div className="hero__rating">
-            <span className="hero__stars">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Icon key={i} name="star" size={18} />
-              ))}
-            </span>
-            <strong>+20 años</strong> de experiencia en el rubro
-          </div>
-        </div>
-
-        <div className="hero__media">
-          <img
-            src="/images/inicio/home.jpg"
-            alt="Técnico de Santiago Hogar instalando una caldera"
-            loading="eager"
-            width={1672}
-            height={941}
-          />
-          <div className="hero__badge">
-            <Icon name="shield" size={22} />
-            <div>
-              <strong>Trabajo garantizado</strong>
-              <small>Técnicos certificados</small>
-            </div>
           </div>
         </div>
       </div>
